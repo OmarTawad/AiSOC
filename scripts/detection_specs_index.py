@@ -60,9 +60,26 @@ from detection_specs_part6_coverage import (  # type: ignore[import-not-found]
     COVERAGE_IDENTITY,
 )
 
+HF_ML_SPIKE = {
+    "slug": "spike-ml-score-control",
+    "name": "HF ML score spike control",
+    "description": "Synthetic integration control scoped to marked Day 2 test events.",
+    "severity": "medium",
+    "mitre": [],
+    "log_source": {"product": "hf-datasets", "service": "integration-control"},
+    "fields": ["hf_test_fixture", "ml_anomaly_score"],
+    "match_when": {"hf_test_fixture": "day2-score-control", "ml_anomaly_score_gte": 0.9},
+    "fp": ["A synthetic control is deliberately submitted with a score above threshold"],
+    "playbook": "tpl-triage",
+    "positive": {"hf_test_fixture": "day2-score-control", "ml_anomaly_score": 0.99},
+    "negative": {"hf_test_fixture": "day2-score-control", "ml_anomaly_score": 0.1},
+}
+
+
 CATEGORIES: dict[str, list[dict]] = {
     "cloud": [*CLOUD, *CLOUD_EXTRA, *FAMILIES_CLOUD, *COVERAGE_CLOUD],
     "identity": [*IDENTITY, *IDENTITY_EXTRA, *FAMILIES_IDENTITY, *COVERAGE_IDENTITY],
+    "hf-ml": [HF_ML_SPIKE],
     "endpoint": [*ENDPOINT, *ENDPOINT_EXTRA],
     "network": [*NETWORK, *NETWORK_EXTRA],
     "application": [*APPLICATION, *APPLICATION_EXTRA, *FAMILIES_APPLICATION, *COVERAGE_APPLICATION],

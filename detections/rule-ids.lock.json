@@ -892,6 +892,7 @@
   "endpoint/win-wmic-process-call-create-remote": "det-endpoint-083",
   "endpoint/windows-event-log-cleared": "det-endpoint-013",
   "endpoint/wmi-process-creation": "det-endpoint-006",
+  "hf-ml/spike-ml-score-control": "det-hf-ml-001",
   "identity/1p-all-blocked": "det-identity-292",
   "identity/1p-anonymous-blocked": "det-identity-291",
   "identity/1p-continent-blocked": "det-identity-290",

@@ -1,0 +1,22 @@
+id: det-hf-ml-001
+name: HF ML score spike control
+description: Synthetic integration control scoped to marked Day 2 test events.
+version: 1.0.0
+severity: medium
+tags:
+- tlp.white
+category: hf-ml
+log_source:
+  product: hf-datasets
+  service: integration-control
+detection:
+  condition: |
+    hf_test_fixture == "day2-score-control"
+    AND ml_anomaly_score >= 0.9
+false_positives:
+- A synthetic control is deliberately submitted with a score above threshold
+playbook: tpl-triage
+enabled: true
+author: AiSOC
+created: '2026-05-03'
+modified: '2026-05-03'

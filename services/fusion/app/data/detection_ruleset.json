@@ -1,5 +1,5 @@
 {
-  "count": 1196,
+  "count": 1197,
   "rules": [
     {
       "category": "application",
@@ -14781,6 +14781,20 @@
       "service": "es_process_events",
       "severity": "high",
       "slug": "osquery-macos-keyboard-event-tap"
+    },
+    {
+      "category": "hf-ml",
+      "id": "det-hf-ml-001",
+      "match_when": {
+        "hf_test_fixture": "day2-score-control",
+        "ml_anomaly_score_gte": 0.9
+      },
+      "mitre": [],
+      "name": "HF ML score spike control",
+      "product": "hf-datasets",
+      "service": "integration-control",
+      "severity": "medium",
+      "slug": "spike-ml-score-control"
     },
     {
       "category": "identity",
