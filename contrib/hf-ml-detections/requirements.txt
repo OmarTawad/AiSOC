@@ -6,3 +6,4 @@ xgboost
 shap
 requests
 python-dotenv
+fsspec[http]
