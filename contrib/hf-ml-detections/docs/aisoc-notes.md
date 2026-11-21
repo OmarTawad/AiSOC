@@ -151,3 +151,96 @@ The request body was:
 ```
 
 Use fresh external IDs and a fresh rule scope for a new spike run.
+
+## Gap found
+
+Rules created via `POST /api/v1/rules` are stored for the tenant and can
+execute on demand via `POST /api/v1/rules/{id}/execute`.
+The streaming engine gets candidates from its compiled corpus. The tenant
+overlay SQL reads status, suppression configuration and severity floors
+for tuning, and never reads `rule_body`.
+See `services/api/app/api/v1/endpoints/detection_rules.py`,
+`services/fusion/app/services/tenant_overlay.py`, and
+`services/fusion/app/services/detection_engine.py`.
+
+Day 2 control `spike-api-ml-score-9d392a4869` was created with HTTP 201 and
+activated with HTTP 200. On-demand execution matched only the 0.99 score.
+Batch request `req-1795266960327557933` accepted both the 0.99 and 0.1 events
+using the original spike's `auth0` profile. The alerts API returned zero for
+both hosts across six polls over 30 seconds. Fusion's consumer group caught
+up to offset 6 with zero lag on `aisoc.raw_events`. Deleting the temporary API
+rule returned 204, and a subsequent read returned 404.
+
+## Day 2 native rule and local deployment
+
+The repository spec in `scripts/detection_specs_index.py` generates
+`detections/hf-ml/spike-ml-score-control.yaml` and rule `det-hf-ml-001`.
+It requires the synthetic-only marker `hf_test_fixture: day2-score-control`
+and a score of at least 0.9. The dataset mappers emit neither field.
+
+For a normal deployment, regenerate both artifacts and build the images:
+
+```bash
+python3 scripts/generate_detections.py
+python3 scripts/export_detection_ruleset.py
+docker compose build ingest-worker fusion
+docker compose up -d --no-deps --force-recreate --pull never ingest-worker fusion
+```
+
+The Day 2 ingest build succeeded. Fusion's build failed after repeated PyPI
+timeouts while fetching Poetry. This Codespace uses the existing Fusion
+image and a read-only mount of a merged imported ruleset. The merge takes
+the control rule from the native exporter output and preserves the 1,770
+rules in the existing imported corpus. The local mount survives recreation.
+
+When setting up this fallback, copy the image's
+`/app/app/data/detection_ruleset_imported.json` from an unmodified Fusion
+container. Merge the exported control into the copied file by ID and update
+its `count`. Save the result locally as
+`contrib/hf-ml-detections/data/fusion-imported-local.json`. Add the following
+under the existing `services` key in the local Compose override, then recreate
+Fusion:
+
+```yaml
+  fusion:
+    volumes:
+      - ./contrib/hf-ml-detections/data/fusion-imported-local.json:/app/app/data/detection_ruleset_imported.json:ro
+```
+
+When deploying a rebuilt Fusion image containing the native rule, remove
+the local mount before recreating Fusion so that the rule loads once.
+
+After recreation, request `req-1795267650420090044` with
+`connector_type: hf_auth` accepted both controls. The alerts API returned
+one alert for the 0.99 control (`197f147c-95d1-5750-9895-d1498c942996`,
+**HF ML score spike control**) and zero for the 0.1 hostname.
+`make smoke` then passed 10/10 stages (run `dbad973859f4`).
+
+### Dataset verification
+
+The ingest CLI reports the sum of the batch API's accepted and rejected
+counts. For each dataset, compare the authenticated alerts API before the
+push and after Fusion has committed through the last Kafka offset. The
+synthetic rule's marker is absent in the dataset payloads. The Kafka stream
+also exposes the normalized events on CORE, where the optional event lake
+is disabled. The verifier checks unique event IDs, connector provenance,
+class, and severity across the complete ingest window.
+
+Advanced SIEM accepted 5,000 and rejected 0. Kafka offsets 9 through 5,008
+contained 5,000 distinct IDs, all in class 4001 with severity ID 2. Fusion
+caught up at offset 5,009 with zero lag. The alerts API returned five alerts
+before and after the run, a delta of zero.
+
+Precinct6 accepted 5,000 and rejected 0. Kafka offsets 5,009 through 10,008
+contained 5,000 distinct IDs, including 769 Authentication (3002) and
+4,231 Network Activity (4001). All had severity ID 2. Fusion caught up at
+offset 10,009 with zero lag. The alerts API again returned five alerts before
+and after, with the same alert IDs.
+
+Both datasets were verified on the Kafka consumer interface because
+`GET /api/v1/lake/schema` returned HTTP 502 for the unavailable ClickHouse
+backend on this CORE deployment.
+
+The reviewer can open the synthetic control in the signed-in console at
+`/alerts/197f147c-95d1-5750-9895-d1498c942996`. Its title is **HF ML score
+spike control**, and its source type is `hf_auth`.
