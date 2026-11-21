@@ -176,6 +176,7 @@ var connectorOCSFClass = map[string]connectorClass{
 	// activity and which the per-event catalogue reaches.
 	"azure_event_hubs": {classUID: classAuthentication},
 	"auth0":            {classUID: classAuthentication},
+	"hf_auth":          {classUID: classAuthentication},
 	"duo_security":     {classUID: classAuthentication},
 	"onepassword":      {classUID: classAuthentication},
 	// JumpCloud's directory insights are account lifecycle first and
@@ -202,6 +203,7 @@ var connectorOCSFClass = map[string]connectorClass{
 	"cloudflare_zt": {classUID: classHTTPActivity},
 	// Flow records and network-monitoring telemetry.
 	"aws_vpc_flow":  {classUID: classNetworkActivity},
+	"hf_network":    {classUID: classNetworkActivity},
 	"zeek_suricata": {classUID: classNetworkActivity},
 	// extrahop is network-shaped and deliberately *not* 4001. RevealX reads
 	// /detections, not flows: each record has already passed the vendor's
