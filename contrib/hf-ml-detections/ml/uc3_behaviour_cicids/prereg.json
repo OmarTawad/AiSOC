@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "eee96b6abc2c4bb621fd67679a4aa24bddc4be6a",
+  "entity": "source_ip",
+  "clock": {
+    "date_format": "day/month/year",
+    "correction": "Add 12 to unmarked hours below 8; leave other hours unchanged.",
+    "row_order_check": "Check non-decreasing corrected timestamps separately within each date before any sorting. Any reversal or invalid row fails validation.",
+    "schedule_check": "At least 95 percent of each Tuesday Patator label must be within its published interval plus or minus five minutes, measured from flow start.",
+    "ftp_minutes_from_midnight": [560, 620],
+    "ssh_minutes_from_midnight": [840, 900],
+    "failure": "Report corrected clock buckets as approximate and do not deploy any detector."
+  },
+  "evaluation": {
+    "window_seconds": 300,
+    "window_kind": "tumbling",
+    "malicious_window": "Any non-benign flow in the source-window.",
+    "family_denominator": "Source-windows containing the attack family. Multi-family windows count for each matching family.",
+    "full_flows": "Use original full-stream rows, including repetitions, without the modelling sample's feature-vector deduplication.",
+    "gate_day": "2017-07-07",
+    "max_false_entity_alerts": 25,
+    "min_entity_precision": 0.5,
+    "zero_alerts_precision": null,
+    "gate_requires_valid_clock": true
+  },
+  "uc1b": {"threshold": 0.18090590834617615, "min_matching_flows": 3},
+  "uc2": {"threshold": 1.6241101345232396, "min_matching_flows": 3},
+  "uc3": {
+    "baseline_day": "2017-07-03",
+    "window_seconds": 60,
+    "features": ["flows", "distinct_dst_ports", "distinct_dst_ips", "auth_port_flows", "short_flow_share"],
+    "auth_ports": [21, 22, 3389, 445],
+    "short_flow_max_microseconds": 100000,
+    "short_flow_max_packets": 3,
+    "baseline": "Fit per-source medians and MADs on observed Monday source-minutes. For unseen sources use pooled observed Monday source-minutes.",
+    "mad_multiplier": 1.4826,
+    "minimum_scales": [1, 1, 1, 1, 0.05],
+    "score": "Maximum signed upward robust z across the five features.",
+    "threshold": 6,
+    "consecutive_minutes": 2,
+    "gaps": "Inactive minutes are not observations and interrupt a consecutive run. Streaks reset at midnight.",
+    "alert": "The second and subsequent consecutive qualifying minutes can trigger. Collapse triggers in each source and five-minute evaluation window to one alert."
+  },
+  "ueba_reference": {
+    "min_samples": 30,
+    "threshold": 3,
+    "baseline": "Initialize from observed Monday source-minutes, then update per source after scoring each later minute in corrected chronological order.",
+    "score": "Absolute sample-standard-deviation z-scores for eligible features, root sum of squares capped at 10.",
+    "zero_variance_epsilon": 1e-9,
+    "peer_group": null,
+    "alert": "Any anomalous minute triggers its source and five-minute evaluation window."
+  },
+  "matched_family_comparison": {
+    "definition": "Separate diagnostic experiment. The fixed flow sample trains supervised models only in development source-windows, then full-stream test source-windows are scored by all-family and held-family models and compared to the same windows for the other methods.",
+    "partition": "BLAKE2b 8-byte big-endian integer of date|source_ip|five-minute-index modulo 10. Buckets 0-5 train, 6-7 validate, 8-9 test.",
+    "calibration": "Freeze each diagnostic XGBoost against benign validation flows at <=1% FPR using the existing tie-safe budget function. Remove the held attack family from supervised development.",
+    "scope": "Tuesday through Friday. The deployed candidate models remain the original chronological UC1b and UC2. Use the same 3-hit aggregation for diagnostic XGBoost models."
+  }
+}
