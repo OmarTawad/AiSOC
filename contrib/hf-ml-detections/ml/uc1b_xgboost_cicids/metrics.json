@@ -1,0 +1,638 @@
+{
+  "cleanup": {
+    "sample_rows": 78183,
+    "nan_cells": 0,
+    "infinite_cells": 0,
+    "conflicting_rows_removed": 6707,
+    "duplicate_rows_removed": 8051,
+    "clean_rows": 63425
+  },
+  "feature_allowlist": [
+    "Flow Duration",
+    "Total Fwd Packets",
+    "Total Backward Packets",
+    "Total Length of Fwd Packets",
+    "Total Length of Bwd Packets",
+    "Fwd Packet Length Mean",
+    "Fwd Packet Length Std",
+    "Bwd Packet Length Mean",
+    "Bwd Packet Length Std",
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Flow IAT Mean",
+    "Flow IAT Std",
+    "Fwd IAT Mean",
+    "Bwd IAT Mean",
+    "Packet Length Mean",
+    "Packet Length Std",
+    "FIN Flag Count",
+    "SYN Flag Count",
+    "RST Flag Count",
+    "PSH Flag Count",
+    "ACK Flag Count",
+    "Down/Up Ratio",
+    "Active Mean",
+    "Idle Mean"
+  ],
+  "threshold_budget": 0.03,
+  "class_days_after_cleanup": {
+    "BENIGN": {
+      "2017-07-03": 8626,
+      "2017-07-04": 8465,
+      "2017-07-05": 8586,
+      "2017-07-06": 7742,
+      "2017-07-07": 8520
+    },
+    "Bot": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 0,
+      "2017-07-07": 1234
+    },
+    "DDoS": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 0,
+      "2017-07-07": 2999
+    },
+    "DoS GoldenEye": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 2999,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "DoS Hulk": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 2328,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "DoS Slowhttptest": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 2872,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "DoS slowloris": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 2826,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "FTP-Patator": {
+      "2017-07-03": 0,
+      "2017-07-04": 2365,
+      "2017-07-05": 0,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "Heartbleed": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 11,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "Infiltration": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 35,
+      "2017-07-07": 0
+    },
+    "PortScan": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 0,
+      "2017-07-07": 231
+    },
+    "SSH-Patator": {
+      "2017-07-03": 0,
+      "2017-07-04": 1572,
+      "2017-07-05": 0,
+      "2017-07-06": 0,
+      "2017-07-07": 0
+    },
+    "Web Attack \u2013 Brute Force": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 1365,
+      "2017-07-07": 0
+    },
+    "Web Attack \u2013 Sql Injection": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 13,
+      "2017-07-07": 0
+    },
+    "Web Attack \u2013 XSS": {
+      "2017-07-03": 0,
+      "2017-07-04": 0,
+      "2017-07-05": 0,
+      "2017-07-06": 636,
+      "2017-07-07": 0
+    }
+  },
+  "split_days": {
+    "train": [
+      "2017-07-03",
+      "2017-07-04",
+      "2017-07-05"
+    ],
+    "validation": [
+      "2017-07-06"
+    ],
+    "test": [
+      "2017-07-07"
+    ]
+  },
+  "test_families_absent_from_train": [
+    "bot",
+    "portscan"
+  ],
+  "test_labels_absent_from_train": [
+    "Bot",
+    "DDoS",
+    "PortScan"
+  ],
+  "day_test": {
+    "heuristic": {
+      "threshold": 0.9997547737754331,
+      "rows": 12984,
+      "attack_rows": 4464,
+      "alerts": 176,
+      "average_precision": 0.30865880196147166,
+      "roc_auc": 0.48127759425429517,
+      "precision": 0.06818181818181818,
+      "recall": 0.002688172043010753,
+      "f1": 0.005172413793103448,
+      "alerts_per_10k": 135.55144793592115,
+      "confusion_matrix": [
+        [
+          8356,
+          164
+        ],
+        [
+          4452,
+          12
+        ]
+      ],
+      "families": {
+        "bot": {
+          "rows": 1234,
+          "recall": 0.0
+        },
+        "dos": {
+          "rows": 2999,
+          "recall": 0.0010003334444814939
+        },
+        "portscan": {
+          "rows": 231,
+          "recall": 0.03896103896103896
+        }
+      },
+      "validation_alerts_per_10k": 222.6534572566643
+    },
+    "logistic": {
+      "threshold": 0.7861843109130859,
+      "rows": 12984,
+      "attack_rows": 4464,
+      "alerts": 2921,
+      "average_precision": 0.7903036527224573,
+      "roc_auc": 0.9028339259722011,
+      "precision": 0.8541595344060253,
+      "recall": 0.558915770609319,
+      "f1": 0.6756939742721734,
+      "alerts_per_10k": 2249.6919285274184,
+      "confusion_matrix": [
+        [
+          8094,
+          426
+        ],
+        [
+          1969,
+          2495
+        ]
+      ],
+      "families": {
+        "bot": {
+          "rows": 1234,
+          "recall": 0.3978930307941653
+        },
+        "dos": {
+          "rows": 2999,
+          "recall": 0.6665555185061687
+        },
+        "portscan": {
+          "rows": 231,
+          "recall": 0.021645021645021644
+        }
+      },
+      "validation_alerts_per_10k": 299.25441732203046
+    },
+    "xgboost": {
+      "threshold": 0.06607415527105331,
+      "rows": 12984,
+      "attack_rows": 4464,
+      "alerts": 3161,
+      "average_precision": 0.8635745461973675,
+      "roc_auc": 0.9094657626163193,
+      "precision": 0.8702942106928188,
+      "recall": 0.616263440860215,
+      "f1": 0.7215737704918033,
+      "alerts_per_10k": 2434.5348120764015,
+      "confusion_matrix": [
+        [
+          8110,
+          410
+        ],
+        [
+          1713,
+          2751
+        ]
+      ],
+      "families": {
+        "bot": {
+          "rows": 1234,
+          "recall": 0.4027552674230146
+        },
+        "dos": {
+          "rows": 2999,
+          "recall": 0.7459153051017006
+        },
+        "portscan": {
+          "rows": 231,
+          "recall": 0.0735930735930736
+        }
+      },
+      "validation_alerts_per_10k": 298.23307118782554
+    }
+  },
+  "family_holdouts": {
+    "dos": {
+      "heuristic": {
+        "threshold": 0.9993032371312477,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 301,
+        "average_precision": 0.3739950854385012,
+        "roc_auc": 0.7075191898269296,
+        "precision": 0.08970099667774087,
+        "recall": 0.00962910128388017,
+        "f1": 0.017391304347826087,
+        "alerts_per_10k": 268.96613350013405,
+        "confusion_matrix": [
+          [
+            8113,
+            274
+          ],
+          [
+            2777,
+            27
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.00962910128388017
+          }
+        },
+        "validation_alerts_per_10k": 262.27848101265823
+      },
+      "logistic": {
+        "threshold": 0.9564802050590515,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 6,
+        "average_precision": 0.2057819283879901,
+        "roc_auc": 0.3707896680328754,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 5.3614511661156286,
+        "confusion_matrix": [
+          [
+            8381,
+            6
+          ],
+          [
+            2804,
+            0
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 299.746835443038
+      },
+      "xgboost": {
+        "threshold": 0.998052716255188,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 0,
+        "average_precision": 0.5266745820759403,
+        "roc_auc": 0.8062128537014778,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 0.0,
+        "confusion_matrix": [
+          [
+            8387,
+            0
+          ],
+          [
+            2804,
+            0
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 260.253164556962
+      }
+    },
+    "portscan": {
+      "heuristic": {
+        "threshold": 0.9987770762891182,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 320,
+        "average_precision": 0.01003574265640685,
+        "roc_auc": 0.6978877766315363,
+        "precision": 0.009375,
+        "recall": 0.06521739130434782,
+        "f1": 0.01639344262295082,
+        "alerts_per_10k": 379.4616387999526,
+        "confusion_matrix": [
+          [
+            8070,
+            317
+          ],
+          [
+            43,
+            3
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.06521739130434782
+          }
+        },
+        "validation_alerts_per_10k": 276.26058735058973
+      },
+      "logistic": {
+        "threshold": 0.9712831377983093,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 29,
+        "average_precision": 0.06256812140653818,
+        "roc_auc": 0.5820783718073002,
+        "precision": 0.10344827586206896,
+        "recall": 0.06521739130434782,
+        "f1": 0.08,
+        "alerts_per_10k": 34.3887110162457,
+        "confusion_matrix": [
+          [
+            8361,
+            26
+          ],
+          [
+            43,
+            3
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.06521739130434782
+          }
+        },
+        "validation_alerts_per_10k": 299.21633816195674
+      },
+      "xgboost": {
+        "threshold": 0.9992243051528931,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 0,
+        "average_precision": 0.022902660054360542,
+        "roc_auc": 0.8332875412776501,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 0.0,
+        "confusion_matrix": [
+          [
+            8387,
+            0
+          ],
+          [
+            46,
+            0
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 290.508984405921
+      }
+    },
+    "patator": {
+      "heuristic": {
+        "threshold": 0.9987770762891182,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 318,
+        "average_precision": 0.09869790484552136,
+        "roc_auc": 0.5954038204888094,
+        "precision": 0.0031446540880503146,
+        "recall": 0.0012706480304955528,
+        "f1": 0.0018099547511312218,
+        "alerts_per_10k": 346.63178548070636,
+        "confusion_matrix": [
+          [
+            8070,
+            317
+          ],
+          [
+            786,
+            1
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.0012706480304955528
+          }
+        },
+        "validation_alerts_per_10k": 293.47460477632023
+      },
+      "logistic": {
+        "threshold": 0.9900379180908203,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 5,
+        "average_precision": 0.09278121866550702,
+        "roc_auc": 0.5900897331730037,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 5.450185306300415,
+        "confusion_matrix": [
+          [
+            8382,
+            5
+          ],
+          [
+            787,
+            0
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 299.3609149007736
+      },
+      "xgboost": {
+        "threshold": 0.9992844462394714,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 0,
+        "average_precision": 0.24858906717964493,
+        "roc_auc": 0.8469506189542144,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 0.0,
+        "confusion_matrix": [
+          [
+            8387,
+            0
+          ],
+          [
+            787,
+            0
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 297.67911200807265
+      }
+    },
+    "web": {
+      "heuristic": {
+        "threshold": 0.9987770762891182,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 317,
+        "average_precision": 0.04609463777293513,
+        "roc_auc": 0.5292714915941338,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 360.6781203777449,
+        "confusion_matrix": [
+          [
+            8070,
+            317
+          ],
+          [
+            402,
+            0
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 285.9004642828052
+      },
+      "logistic": {
+        "threshold": 0.9744163155555725,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 14,
+        "average_precision": 0.459232434485373,
+        "roc_auc": 0.9617324134069132,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 15.92900216179315,
+        "confusion_matrix": [
+          [
+            8373,
+            14
+          ],
+          [
+            402,
+            0
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 299.7474953164454
+      },
+      "xgboost": {
+        "threshold": 0.9991878867149353,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 0,
+        "average_precision": 0.29568706283131035,
+        "roc_auc": 0.9096825399650134,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 0.0,
+        "confusion_matrix": [
+          [
+            8387,
+            0
+          ],
+          [
+            402,
+            0
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.0
+          }
+        },
+        "validation_alerts_per_10k": 299.7474953164454
+      }
+    }
+  }
+}

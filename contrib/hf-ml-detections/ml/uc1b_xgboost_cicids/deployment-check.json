@@ -1,0 +1,14 @@
+{
+  "model_version": "uc1b-cic-9dae2b65cb98",
+  "threshold": 0.06607415527105331,
+  "flows": 12984,
+  "benign": 8520,
+  "expected_matches": 3161,
+  "expected_by_label": {
+    "BENIGN": 410,
+    "Bot": 497,
+    "PortScan": 17,
+    "DDoS": 2237
+  },
+  "alert_rate": 0.24345348120764018
+}
