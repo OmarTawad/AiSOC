@@ -100,4 +100,17 @@ def map_advanced_siem(row):
     )
 
 
-MAPPERS = {"precinct6": map_precinct6, "advanced-siem": map_advanced_siem}
+def map_cicids(row):
+    event_row = {**row, "hf_label": row["attack_label"]}
+    connector_type, event = envelope(
+        "cicids", row["hf_row_index"], "hf_network", event_row,
+        when=row["capture_day"] + "T00:00:00+00:00",
+        username=None, hostname=None, family="network-flow",
+    )
+    for original, canonical in (("source_ip", "src_ip"), ("destination_ip", "dst_ip")):
+        if row.get(original):
+            event[canonical] = row[original]
+    return connector_type, event
+
+
+MAPPERS = {"precinct6": map_precinct6, "advanced-siem": map_advanced_siem, "cicids": map_cicids}

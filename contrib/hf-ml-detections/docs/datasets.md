@@ -122,3 +122,59 @@ origin also make it a weak basis for evaluating generalization.
 The generated Precinct6 and Advanced SIEM parquet projections were
 5,954,747 and 5,239,479 bytes respectively, or 11,194,226 bytes combined.
 The local sample reports record the measured dimensions and date ranges.
+
+## CIC-IDS2017 flow subset
+
+The Apache-2.0 [Hugging Face release](https://huggingface.co/datasets/rdpahalavan/CIC-IDS2017)
+contains several modalities. This project uses only
+`Network-Flows/CICIDS_Flow.parquet` at revision
+`eee96b6abc2c4bb621fd67679a4aa24bddc4be6a`.
+Its size is 369,814,810 bytes. The file has 2,827,677 rows in one row group.
+A remote two-column census precedes a projected sample read. The source
+file is never written locally. The sample has 78,183 rows and is 4,859,248
+bytes. Seed 42 selects up to 10,000 benign rows per day, caps common attack
+labels at 3,000 per day, and retains all rows of labels with at most 3,000
+rows before duplicate cleanup.
+
+| Label | Mon Jul 3 | Tue Jul 4 | Wed Jul 5 | Thu Jul 6 | Fri Jul 7 | Full | Raw sample |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| BENIGN | 529,450 | 431,809 | 439,668 | 456,267 | 413,928 | 2,271,122 | 50,000 |
+| FTP-Patator | 0 | 7,935 | 0 | 0 | 0 | 7,935 | 3,000 |
+| SSH-Patator | 0 | 5,897 | 0 | 0 | 0 | 5,897 | 3,000 |
+| DoS slowloris | 0 | 0 | 5,796 | 0 | 0 | 5,796 | 3,000 |
+| DoS Slowhttptest | 0 | 0 | 5,499 | 0 | 0 | 5,499 | 3,000 |
+| DoS Hulk | 0 | 0 | 230,123 | 0 | 0 | 230,123 | 3,000 |
+| DoS GoldenEye | 0 | 0 | 10,293 | 0 | 0 | 10,293 | 3,000 |
+| Heartbleed | 0 | 0 | 11 | 0 | 0 | 11 | 11 |
+| Infiltration | 0 | 0 | 0 | 36 | 0 | 36 | 36 |
+| Web Attack – Brute Force | 0 | 0 | 0 | 1,507 | 0 | 1,507 | 1,507 |
+| Web Attack – XSS | 0 | 0 | 0 | 652 | 0 | 652 | 652 |
+| Web Attack – Sql Injection | 0 | 0 | 0 | 21 | 0 | 21 | 21 |
+| Bot | 0 | 0 | 0 | 0 | 1,956 | 1,956 | 1,956 |
+| PortScan | 0 | 0 | 0 | 0 | 158,804 | 158,804 | 3,000 |
+| DDoS | 0 | 0 | 0 | 0 | 128,025 | 128,025 | 3,000 |
+
+All timestamps across Monday (529,450 rows), Tuesday (445,641),
+Wednesday (691,390), Thursday (458,483), and Friday (702,713) parsed to
+calendar dates in day/month/year order. On every day, all observed hours
+were in the 1–12 range without AM/PM markers. There were zero invalid
+dates. The clock cannot establish reliable intra-day order or a timezone.
+The day split uses dates only. OCSF uses UTC midnight as a day-level
+placeholder and preserves the original timestamp under `raw_event`.
+
+Only the selected flow duration, packet and byte totals, rate, length,
+inter-arrival, TCP flag, and active/idle statistics are model inputs.
+Identifiers, addresses, ports, protocol string, timestamps, and the label
+are excluded. Non-finite numeric values become missing. Duplicate feature
+vectors are grouped before splitting, even across days, and label-conflict
+groups are discarded. The earliest remaining representative keeps the
+feature vector out of subsequent day splits. Logistic preprocessing learns
+imputation and scaling from the respective training fold.
+
+The mapper uses `hf_network`, retains `raw_event.hf_label`, and assigns
+`cicids:<row-index>` scoped to the pinned release. The original labels are
+benchmark annotations. Engelen, Rimmer and Joosen (2021) published
+corrections to CIC-IDS2017 flow construction and labeling. This evaluation
+uses the pinned Hugging Face file as published, and absolute scores should
+be interpreted in light of those known errors.
+[Published label-quality audit and corrections](https://intrusion-detection.distrinet-research.be/WTMC2021/)
