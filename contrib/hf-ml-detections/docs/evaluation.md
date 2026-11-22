@@ -365,3 +365,98 @@ workload tradeoff on this replay. Clock validation remains failed under
 the unchanged preregistration, so the nominal windows remain approximate
 and no production rule was deployed. UC3 is the strongest operating point
 for a demo. [Friday output](../ml/uc3_behaviour_cicids/friday_v2.json)
+
+## Day 6 — Roles and controlled replay
+
+The committed v2 thresholds, score models and Monday allowlist were
+unchanged. UC3 is the sole HF alerting detector. The existing synthetic
+control and Precinct6 rule are retired. The active Medium tier
+`det-hf-ml-005` requires the exact `corroborated_by: none` value, and the
+High tier `det-hf-ml-005-hi` requires `corroborated_by: uc1b`. Both require
+the controlled-demo marker. This keeps the working demonstration separate
+from production deployment while the capture clock remains unvalidated.
+A source's unique summary ID is also used as its replay host identifier
+so Fusion's alert deduplication preserves one row per source-window.
+
+### Allowlist audit
+
+The [25-source audit](../reports/allowlist-audit.md) lists each address,
+Monday volume, distinct peers by direction, and the highest-volume
+inbound service ports. The published DNS and domain controller is on the
+list, along with lab workstations and server-like sources. The two
+published firewall addresses (`172.16.0.1` and `205.174.165.80`),
+`172.16.0.11`, and the named external attacker addresses are absent.
+**`192.168.10.8` is on the list.** The lab used that workstation as a
+simulated lateral-movement source on Thursday. Monday's benign label
+cannot guarantee that a source remains benign on later days.
+[UNB capture topology](https://www.unb.ca/cic/datasets/ids-2017.html)
+
+Applying the frozen UC3 persistence and volume conditions, these attack
+windows were suppressed solely by the allowlist:
+
+| Attack family | Tue | Wed | Thu | Fri |
+|---|---:|---:|---:|---:|
+| Patator | 0 | 0 | 0 | 0 |
+| DoS / DDoS / Heartbleed | 0 | 0 | 0 | 1 |
+| Web attacks | 0 | 0 | 0 | 0 |
+| Infiltration | 0 | 0 | 10 | 0 |
+| Bot | 0 | 0 | 0 | 6 |
+| PortScan | 0 | 0 | 0 | 0 |
+
+### Corroboration and hunting
+
+UC1b failed its standalone workload gate. Its frozen three-hit,
+five-minute window test adds a High severity tier only if the same
+source also has a UC3 alert in that bucket or an adjacent bucket.
+The High summary carries the note “matches a known-attack model”.
+Using the following bucket requires one additional bucket of latency.
+
+| Friday UC3 alerts | Total | Attack-labeled | Benign-labeled | Precision |
+|---|---:|---:|---:|---:|
+| UC1b-corroborated | 11 | 10 | 1 | 90.91% |
+| Uncorroborated | 14 | 6 | 8 | 42.86% |
+
+UC2 also failed its standalone gate and produces a daily hunting report.
+Each source is ranked by its maximum frozen Isolation Forest flow score
+on that day. The explanation gives the three largest deviations from
+benign training medians for that flow. A source counts as attack-labeled
+if any source flow on that capture day carries an attack label. Monday
+through Wednesday are descriptive on days used for model development.
+
+| Capture day | Attack-labeled sources in top 20 | Report |
+|---|---:|---|
+| Monday | 0 | [Markdown](../reports/hunting_2017-07-03.md) · [CSV](../reports/hunting_2017-07-03.csv) |
+| Tuesday | 0 | [Markdown](../reports/hunting_2017-07-04.md) · [CSV](../reports/hunting_2017-07-04.csv) |
+| Wednesday | 1 | [Markdown](../reports/hunting_2017-07-05.md) · [CSV](../reports/hunting_2017-07-05.csv) |
+| Thursday | 2 | [Markdown](../reports/hunting_2017-07-06.md) · [CSV](../reports/hunting_2017-07-06.csv) |
+| Friday | 9 | [Markdown](../reports/hunting_2017-07-07.md) · [CSV](../reports/hunting_2017-07-07.csv) |
+
+### Replay evidence
+
+The replay covers Tuesday 13:50–15:20 and Wednesday 09:20–11:35 in
+approximate capture-clock buckets. Wednesday includes 27 minutes before
+the published 09:47 start after rounding to a five-minute bucket.
+The Tuesday/Wednesday severity booster applies the frozen UC1b scorer
+descriptively on days used for training. The separate Friday booster
+counts are the holdout result. The bucket start is carried as a replay
+timestamp with an explicit approximate-clock, unverified-timezone note.
+
+| Dry-run expectation | High attack | High benign | Medium attack | Medium benign |
+|---|---:|---:|---:|---:|
+| Tuesday, Patator slice | 13 | 0 | 0 | 4 |
+| Wednesday, DoS slice | 17 | 1 | 0 | 3 |
+
+Request `req-1795359191119506907` accepted all 38 summaries and rejected
+none. Alert details reconciled 38 distinct summary IDs to 38 alerts
+(31 High and 7 Medium). Both the outbound summaries and the persisted
+raw alert payloads passed the label-field checks. The benchmark labels
+remain in a separate local ledger, joined back after triage. No label
+field reached AiSOC from these summaries.
+
+### Native image check
+
+The single native Fusion build was tried with 3.0 GB free and
+`PIP_DEFAULT_TIMEOUT=120` passed explicitly to pip through a temporary
+Dockerfile build argument. The build command reached its 240-second
+overall cap after repeated PyPI TLS EOF errors while fetching Poetry.
+The verified read-only mount remains active. No volume was pruned.

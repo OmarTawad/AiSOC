@@ -1,0 +1,21 @@
+rank,source_ip,score,top_deviations,attack_entity
+1,192.168.10.15,1.69763648,Total Fwd Packets (+10.27 scaled deviation); Total Backward Packets (+9.88 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+2,192.168.10.25,1.69718563,Idle Mean (+165.24 scaled deviation); Active Mean (+159.23 scaled deviation); Total Fwd Packets (+9.51 scaled deviation),False
+3,192.168.10.9,1.69178445,Idle Mean (+166.43 scaled deviation); Active Mean (+155.70 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+4,192.168.10.8,1.68054972,Idle Mean (+165.76 scaled deviation); Active Mean (+134.09 scaled deviation); SYN Flag Count (+6.93 scaled deviation),True
+5,192.168.10.12,1.67723330,Idle Mean (+167.81 scaled deviation); Active Mean (+133.26 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+6,192.168.10.14,1.67278401,Idle Mean (+175.70 scaled deviation); Active Mean (+155.13 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+7,192.168.10.16,1.67228485,Idle Mean (+171.62 scaled deviation); Active Mean (+147.18 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+8,192.168.10.5,1.66885106,SYN Flag Count (+6.93 scaled deviation); ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+5.38 scaled deviation),False
+9,192.168.10.17,1.66836255,Idle Mean (+178.90 scaled deviation); Active Mean (+137.24 scaled deviation); SYN Flag Count (+6.93 scaled deviation),False
+10,211.110.65.19,1.66660885,SYN Flag Count (+6.93 scaled deviation); ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+5.64 scaled deviation),False
+11,192.168.10.51,1.66598525,Total Backward Packets (+6.76 scaled deviation); Total Fwd Packets (+6.64 scaled deviation); Total Length of Bwd Packets (+5.05 scaled deviation),False
+12,192.168.10.3,1.66585118,Idle Mean (+168.60 scaled deviation); Active Mean (+150.08 scaled deviation); Total Fwd Packets (+8.27 scaled deviation),False
+13,193.243.130.87,1.66490307,SYN Flag Count (+6.93 scaled deviation); ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+5.26 scaled deviation),False
+14,194.232.104.139,1.66325983,SYN Flag Count (+6.93 scaled deviation); ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+4.39 scaled deviation),False
+15,192.168.10.50,1.66279209,Total Fwd Packets (+10.08 scaled deviation); Total Backward Packets (+9.91 scaled deviation); Total Length of Bwd Packets (+6.43 scaled deviation),False
+16,23.15.4.18,1.65650255,ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+6.89 scaled deviation); Total Fwd Packets (+4.56 scaled deviation),False
+17,172.16.0.1,1.65494738,Idle Mean (+183.83 scaled deviation); Active Mean (+145.25 scaled deviation); Fwd Packet Length Mean (-6.36 scaled deviation),True
+18,192.229.210.12,1.65421291,ACK Flag Count (+6.93 scaled deviation); Fwd Packet Length Mean (+6.69 scaled deviation); Total Fwd Packets (+5.29 scaled deviation),False
+19,192.168.10.19,1.65012752,SYN Flag Count (+6.93 scaled deviation); ACK Flag Count (+6.93 scaled deviation); Bwd Packet Length Mean (-3.44 scaled deviation),False
+20,8.6.0.1,1.64833577,Idle Mean (+170.10 scaled deviation); Active Mean (+157.48 scaled deviation); Fwd Packet Length Mean (-6.36 scaled deviation),False
