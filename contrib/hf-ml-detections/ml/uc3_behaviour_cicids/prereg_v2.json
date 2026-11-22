@@ -1,0 +1,598 @@
+{
+  "prior_prereg_sha256": "02c3487d8a9486a88f216e778eadca1f5ecab59568b2b5dd5f39146c5f20b5b3",
+  "evaluation_day": "2017-07-07",
+  "entity": "source_ip",
+  "window_seconds": 300,
+  "frozen_flow_operating_points": {
+    "uc1b": {
+      "threshold": 0.18090590834617615,
+      "min_matching_flows": 3
+    },
+    "uc2": {
+      "threshold": 1.6241101345232396,
+      "min_matching_flows": 3
+    }
+  },
+  "uc3_robust_score_threshold": 6,
+  "evidence": "Friday was examined in earlier rounds; this is a pre-registered re-test, weaker evidence than a fresh day.",
+  "selection": "Compare all candidates on common Thursday: gate pass first, then excess false alerts, descending macro family recall, false alerts, precision and allowlist size. Tue/Wed are additional UC3 evidence. Flow confirmation is unavailable on Tue/Wed because frozen flow scores were only computed for Thu/Fri.",
+  "gate": {
+    "false_entity_alerts_max": 25,
+    "precision_min": 0.5,
+    "requires_validated_clock": true
+  },
+  "frozen": {
+    "uc1b": {
+      "detector": "uc1b",
+      "monday_top_n": 25,
+      "monday_source_allowlist": [
+        {
+          "rank": 1,
+          "source_sha256": "62e2fb11efd67c0eb4f7388220ccdc3d7882f0611fc56d86c82b7642b5a91996",
+          "monday_flows": 67769,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 2,
+          "source_sha256": "bfa5c0e41578d8a299c254a9871b6462bf9ba1e26ab43848b3e53f7e2a09f4f2",
+          "monday_flows": 58152,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 3,
+          "source_sha256": "b2311239938f19dbed5521372724f170d0b8172ab64d1e92ae6b02090bf6f99c",
+          "monday_flows": 48616,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 4,
+          "source_sha256": "db215233a8b6c316e36307166bcb31facec497aec8c1d670c2ba0b20b7afb220",
+          "monday_flows": 36484,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 5,
+          "source_sha256": "1904183b310c00437f673db7284e2a52cfcfad826280d887e72de415db0aea78",
+          "monday_flows": 34337,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 6,
+          "source_sha256": "35b460fe6e47b9a49eaf56943a29ce3b12466112c4ccbca363ef358958e9eae9",
+          "monday_flows": 31384,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 7,
+          "source_sha256": "7b4dffb4895e20af3496a82591be5a39cbc8422362668c02f478628a19d6af08",
+          "monday_flows": 27432,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 8,
+          "source_sha256": "452f84b48e9caa546b3b8b71727f866eabdeeb31d20a40d263cbf27c88085519",
+          "monday_flows": 26726,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 9,
+          "source_sha256": "f2b2aba7d95d29344834f4b851834525b30d29d1962a919e22905658ec2aba4d",
+          "monday_flows": 24709,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 10,
+          "source_sha256": "f29ec648438a3fe4d2b258f03cca969ab508c7bf015260900e396b0fbd8560d4",
+          "monday_flows": 22441,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 11,
+          "source_sha256": "0c68f51756e9545217322a28125939abbfdc7d40be8a4da8b5f4b6cd97f4b5b1",
+          "monday_flows": 21948,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 12,
+          "source_sha256": "78ef71ababb8a71f8846779ed73cae0a1aec289cbc1d164d709dcb85a2c8f9b8",
+          "monday_flows": 18851,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 13,
+          "source_sha256": "2abd280a205c6fa37abe652796114e6a9585ba4834f67d6af28f34072c0f7a9d",
+          "monday_flows": 7093,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 14,
+          "source_sha256": "711414b38933e4bcbb21acc1a81795908e68e443b8dc709b3c6fffc5497e31b1",
+          "monday_flows": 3202,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 15,
+          "source_sha256": "86134c1c0bcf5a1304381e99becff2ddcbb34b195b6989ede134cd508d1bd9e7",
+          "monday_flows": 1763,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 16,
+          "source_sha256": "5b790fc3f075d9fd46e4c330ef93bd25bb09eefa2e5cbd836664bb95777c1807",
+          "monday_flows": 1406,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 17,
+          "source_sha256": "74d0cd7836b4fe6579b073ee198bf75acb3c828296044f34eba01ba96addf819",
+          "monday_flows": 1335,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 18,
+          "source_sha256": "4ca27e7eacc04f03ddea3a0460c42b7f7c0a4e11351b1f8415a01821c8c5e2e0",
+          "monday_flows": 1313,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 19,
+          "source_sha256": "a058cfa772cdd6d1223ff7f4c66c029180acde389f74042f661327a898dc5971",
+          "monday_flows": 1036,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 20,
+          "source_sha256": "3e8ab7e7b9090ff33337c7bc266eb2fac6e9c92b5b6fe4681747efda67fa1067",
+          "monday_flows": 801,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 21,
+          "source_sha256": "a04f72f9930b84bbfc3dd9a1f6ed183a52be6205224fde1ce9df91b06fe5c55b",
+          "monday_flows": 727,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 22,
+          "source_sha256": "fe49d85a6ea0834b7b7c95d80bc9433c91faa175795cf8302a200b92f0a8b255",
+          "monday_flows": 708,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 23,
+          "source_sha256": "6f9a2f8585d89235cfe36c8e4c13908e716874596d1814936b9701514e8fe226",
+          "monday_flows": 698,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 24,
+          "source_sha256": "45bad6ee795f1732e2df7c90ddb170950256eb7d64bcdf0e9d0cd3db891074cc",
+          "monday_flows": 563,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 25,
+          "source_sha256": "5636e90ca1868b8f0d488b9f3a455b261d7d1c6908de5b29305d80829844eb5a",
+          "monday_flows": 515,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        }
+      ],
+      "tuning_days": {
+        "2017-07-06": {
+          "source_windows": 24157,
+          "malicious_windows": 31,
+          "entity_alerts": 241,
+          "false_entity_alerts": 238,
+          "true_entity_alerts": 3,
+          "precision": 0.012448132780082987,
+          "recall": 0.0967741935483871,
+          "families": {
+            "infiltration": {
+              "windows": 15,
+              "detected": 0,
+              "recall": 0.0
+            },
+            "web": {
+              "windows": 16,
+              "detected": 3,
+              "recall": 0.1875
+            }
+          }
+        }
+      }
+    },
+    "uc2": {
+      "detector": "uc2",
+      "monday_top_n": 25,
+      "monday_source_allowlist": [
+        {
+          "rank": 1,
+          "source_sha256": "62e2fb11efd67c0eb4f7388220ccdc3d7882f0611fc56d86c82b7642b5a91996",
+          "monday_flows": 67769,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 2,
+          "source_sha256": "bfa5c0e41578d8a299c254a9871b6462bf9ba1e26ab43848b3e53f7e2a09f4f2",
+          "monday_flows": 58152,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 3,
+          "source_sha256": "b2311239938f19dbed5521372724f170d0b8172ab64d1e92ae6b02090bf6f99c",
+          "monday_flows": 48616,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 4,
+          "source_sha256": "db215233a8b6c316e36307166bcb31facec497aec8c1d670c2ba0b20b7afb220",
+          "monday_flows": 36484,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 5,
+          "source_sha256": "1904183b310c00437f673db7284e2a52cfcfad826280d887e72de415db0aea78",
+          "monday_flows": 34337,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 6,
+          "source_sha256": "35b460fe6e47b9a49eaf56943a29ce3b12466112c4ccbca363ef358958e9eae9",
+          "monday_flows": 31384,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 7,
+          "source_sha256": "7b4dffb4895e20af3496a82591be5a39cbc8422362668c02f478628a19d6af08",
+          "monday_flows": 27432,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 8,
+          "source_sha256": "452f84b48e9caa546b3b8b71727f866eabdeeb31d20a40d263cbf27c88085519",
+          "monday_flows": 26726,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 9,
+          "source_sha256": "f2b2aba7d95d29344834f4b851834525b30d29d1962a919e22905658ec2aba4d",
+          "monday_flows": 24709,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 10,
+          "source_sha256": "f29ec648438a3fe4d2b258f03cca969ab508c7bf015260900e396b0fbd8560d4",
+          "monday_flows": 22441,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 11,
+          "source_sha256": "0c68f51756e9545217322a28125939abbfdc7d40be8a4da8b5f4b6cd97f4b5b1",
+          "monday_flows": 21948,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 12,
+          "source_sha256": "78ef71ababb8a71f8846779ed73cae0a1aec289cbc1d164d709dcb85a2c8f9b8",
+          "monday_flows": 18851,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 13,
+          "source_sha256": "2abd280a205c6fa37abe652796114e6a9585ba4834f67d6af28f34072c0f7a9d",
+          "monday_flows": 7093,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 14,
+          "source_sha256": "711414b38933e4bcbb21acc1a81795908e68e443b8dc709b3c6fffc5497e31b1",
+          "monday_flows": 3202,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 15,
+          "source_sha256": "86134c1c0bcf5a1304381e99becff2ddcbb34b195b6989ede134cd508d1bd9e7",
+          "monday_flows": 1763,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 16,
+          "source_sha256": "5b790fc3f075d9fd46e4c330ef93bd25bb09eefa2e5cbd836664bb95777c1807",
+          "monday_flows": 1406,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 17,
+          "source_sha256": "74d0cd7836b4fe6579b073ee198bf75acb3c828296044f34eba01ba96addf819",
+          "monday_flows": 1335,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 18,
+          "source_sha256": "4ca27e7eacc04f03ddea3a0460c42b7f7c0a4e11351b1f8415a01821c8c5e2e0",
+          "monday_flows": 1313,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 19,
+          "source_sha256": "a058cfa772cdd6d1223ff7f4c66c029180acde389f74042f661327a898dc5971",
+          "monday_flows": 1036,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 20,
+          "source_sha256": "3e8ab7e7b9090ff33337c7bc266eb2fac6e9c92b5b6fe4681747efda67fa1067",
+          "monday_flows": 801,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 21,
+          "source_sha256": "a04f72f9930b84bbfc3dd9a1f6ed183a52be6205224fde1ce9df91b06fe5c55b",
+          "monday_flows": 727,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 22,
+          "source_sha256": "fe49d85a6ea0834b7b7c95d80bc9433c91faa175795cf8302a200b92f0a8b255",
+          "monday_flows": 708,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 23,
+          "source_sha256": "6f9a2f8585d89235cfe36c8e4c13908e716874596d1814936b9701514e8fe226",
+          "monday_flows": 698,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 24,
+          "source_sha256": "45bad6ee795f1732e2df7c90ddb170950256eb7d64bcdf0e9d0cd3db891074cc",
+          "monday_flows": 563,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 25,
+          "source_sha256": "5636e90ca1868b8f0d488b9f3a455b261d7d1c6908de5b29305d80829844eb5a",
+          "monday_flows": 515,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        }
+      ],
+      "tuning_days": {
+        "2017-07-06": {
+          "source_windows": 24157,
+          "malicious_windows": 31,
+          "entity_alerts": 62,
+          "false_entity_alerts": 62,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "infiltration": {
+              "windows": 15,
+              "detected": 0,
+              "recall": 0.0
+            },
+            "web": {
+              "windows": 16,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        }
+      }
+    },
+    "uc3": {
+      "detector": "uc3",
+      "monday_top_n": 25,
+      "persistence": 3,
+      "min_flows_per_minute": 5,
+      "require_flow_confirmation": false,
+      "monday_source_allowlist": [
+        {
+          "rank": 1,
+          "source_sha256": "62e2fb11efd67c0eb4f7388220ccdc3d7882f0611fc56d86c82b7642b5a91996",
+          "monday_flows": 67769,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 2,
+          "source_sha256": "bfa5c0e41578d8a299c254a9871b6462bf9ba1e26ab43848b3e53f7e2a09f4f2",
+          "monday_flows": 58152,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 3,
+          "source_sha256": "b2311239938f19dbed5521372724f170d0b8172ab64d1e92ae6b02090bf6f99c",
+          "monday_flows": 48616,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 4,
+          "source_sha256": "db215233a8b6c316e36307166bcb31facec497aec8c1d670c2ba0b20b7afb220",
+          "monday_flows": 36484,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 5,
+          "source_sha256": "1904183b310c00437f673db7284e2a52cfcfad826280d887e72de415db0aea78",
+          "monday_flows": 34337,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 6,
+          "source_sha256": "35b460fe6e47b9a49eaf56943a29ce3b12466112c4ccbca363ef358958e9eae9",
+          "monday_flows": 31384,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 7,
+          "source_sha256": "7b4dffb4895e20af3496a82591be5a39cbc8422362668c02f478628a19d6af08",
+          "monday_flows": 27432,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 8,
+          "source_sha256": "452f84b48e9caa546b3b8b71727f866eabdeeb31d20a40d263cbf27c88085519",
+          "monday_flows": 26726,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 9,
+          "source_sha256": "f2b2aba7d95d29344834f4b851834525b30d29d1962a919e22905658ec2aba4d",
+          "monday_flows": 24709,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 10,
+          "source_sha256": "f29ec648438a3fe4d2b258f03cca969ab508c7bf015260900e396b0fbd8560d4",
+          "monday_flows": 22441,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 11,
+          "source_sha256": "0c68f51756e9545217322a28125939abbfdc7d40be8a4da8b5f4b6cd97f4b5b1",
+          "monday_flows": 21948,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 12,
+          "source_sha256": "78ef71ababb8a71f8846779ed73cae0a1aec289cbc1d164d709dcb85a2c8f9b8",
+          "monday_flows": 18851,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 13,
+          "source_sha256": "2abd280a205c6fa37abe652796114e6a9585ba4834f67d6af28f34072c0f7a9d",
+          "monday_flows": 7093,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 14,
+          "source_sha256": "711414b38933e4bcbb21acc1a81795908e68e443b8dc709b3c6fffc5497e31b1",
+          "monday_flows": 3202,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 15,
+          "source_sha256": "86134c1c0bcf5a1304381e99becff2ddcbb34b195b6989ede134cd508d1bd9e7",
+          "monday_flows": 1763,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 16,
+          "source_sha256": "5b790fc3f075d9fd46e4c330ef93bd25bb09eefa2e5cbd836664bb95777c1807",
+          "monday_flows": 1406,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 17,
+          "source_sha256": "74d0cd7836b4fe6579b073ee198bf75acb3c828296044f34eba01ba96addf819",
+          "monday_flows": 1335,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 18,
+          "source_sha256": "4ca27e7eacc04f03ddea3a0460c42b7f7c0a4e11351b1f8415a01821c8c5e2e0",
+          "monday_flows": 1313,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 19,
+          "source_sha256": "a058cfa772cdd6d1223ff7f4c66c029180acde389f74042f661327a898dc5971",
+          "monday_flows": 1036,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 20,
+          "source_sha256": "3e8ab7e7b9090ff33337c7bc266eb2fac6e9c92b5b6fe4681747efda67fa1067",
+          "monday_flows": 801,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 21,
+          "source_sha256": "a04f72f9930b84bbfc3dd9a1f6ed183a52be6205224fde1ce9df91b06fe5c55b",
+          "monday_flows": 727,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 22,
+          "source_sha256": "fe49d85a6ea0834b7b7c95d80bc9433c91faa175795cf8302a200b92f0a8b255",
+          "monday_flows": 708,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 23,
+          "source_sha256": "6f9a2f8585d89235cfe36c8e4c13908e716874596d1814936b9701514e8fe226",
+          "monday_flows": 698,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 24,
+          "source_sha256": "45bad6ee795f1732e2df7c90ddb170950256eb7d64bcdf0e9d0cd3db891074cc",
+          "monday_flows": 563,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        },
+        {
+          "rank": 25,
+          "source_sha256": "5636e90ca1868b8f0d488b9f3a455b261d7d1c6908de5b29305d80829844eb5a",
+          "monday_flows": 515,
+          "reason": "Monday benign top talker by cumulative observed flows; infrastructure role unverified"
+        }
+      ],
+      "tuning_days": {
+        "2017-07-04": {
+          "source_windows": 25090,
+          "malicious_windows": 29,
+          "entity_alerts": 52,
+          "false_entity_alerts": 26,
+          "true_entity_alerts": 26,
+          "precision": 0.5,
+          "recall": 0.896551724137931,
+          "families": {
+            "patator": {
+              "windows": 29,
+              "detected": 26,
+              "recall": 0.896551724137931
+            }
+          }
+        },
+        "2017-07-05": {
+          "source_windows": 25604,
+          "malicious_windows": 27,
+          "entity_alerts": 43,
+          "false_entity_alerts": 24,
+          "true_entity_alerts": 19,
+          "precision": 0.4418604651162791,
+          "recall": 0.7037037037037037,
+          "families": {
+            "dos": {
+              "windows": 27,
+              "detected": 19,
+              "recall": 0.7037037037037037
+            }
+          }
+        },
+        "2017-07-06": {
+          "source_windows": 24157,
+          "malicious_windows": 31,
+          "entity_alerts": 25,
+          "false_entity_alerts": 10,
+          "true_entity_alerts": 15,
+          "precision": 0.6,
+          "recall": 0.4838709677419355,
+          "families": {
+            "infiltration": {
+              "windows": 15,
+              "detected": 0,
+              "recall": 0.0
+            },
+            "web": {
+              "windows": 16,
+              "detected": 15,
+              "recall": 0.9375
+            }
+          }
+        }
+      }
+    }
+  }
+}
