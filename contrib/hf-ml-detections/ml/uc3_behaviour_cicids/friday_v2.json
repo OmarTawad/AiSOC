@@ -1,0 +1,89 @@
+{
+  "uc1b": {
+    "source_windows": 23056,
+    "malicious_windows": 197,
+    "entity_alerts": 216,
+    "false_entity_alerts": 202,
+    "true_entity_alerts": 14,
+    "precision": 0.06481481481481481,
+    "recall": 0.07106598984771574,
+    "families": {
+      "bot": {
+        "windows": 179,
+        "detected": 0,
+        "recall": 0.0
+      },
+      "dos": {
+        "windows": 6,
+        "detected": 5,
+        "recall": 0.8333333333333334
+      },
+      "portscan": {
+        "windows": 12,
+        "detected": 9,
+        "recall": 0.75
+      }
+    },
+    "numeric_gate_passed": false,
+    "clock_validated": false,
+    "eligible_to_deploy": false
+  },
+  "uc2": {
+    "source_windows": 23056,
+    "malicious_windows": 197,
+    "entity_alerts": 70,
+    "false_entity_alerts": 64,
+    "true_entity_alerts": 6,
+    "precision": 0.08571428571428572,
+    "recall": 0.030456852791878174,
+    "families": {
+      "bot": {
+        "windows": 179,
+        "detected": 0,
+        "recall": 0.0
+      },
+      "dos": {
+        "windows": 6,
+        "detected": 4,
+        "recall": 0.6666666666666666
+      },
+      "portscan": {
+        "windows": 12,
+        "detected": 2,
+        "recall": 0.16666666666666666
+      }
+    },
+    "numeric_gate_passed": false,
+    "clock_validated": false,
+    "eligible_to_deploy": false
+  },
+  "uc3": {
+    "source_windows": 23056,
+    "malicious_windows": 197,
+    "entity_alerts": 25,
+    "false_entity_alerts": 9,
+    "true_entity_alerts": 16,
+    "precision": 0.64,
+    "recall": 0.08121827411167512,
+    "families": {
+      "bot": {
+        "windows": 179,
+        "detected": 6,
+        "recall": 0.0335195530726257
+      },
+      "dos": {
+        "windows": 6,
+        "detected": 5,
+        "recall": 0.8333333333333334
+      },
+      "portscan": {
+        "windows": 12,
+        "detected": 5,
+        "recall": 0.4166666666666667
+      }
+    },
+    "numeric_gate_passed": true,
+    "clock_validated": false,
+    "eligible_to_deploy": false
+  }
+}

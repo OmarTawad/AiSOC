@@ -303,3 +303,65 @@ To reproduce with the existing CIC model artifacts, run
 `.venv/bin/python ml/uc3_behaviour_cicids/clock.py` first, then
 `.venv/bin/python ml/uc3_behaviour_cicids/evaluate.py` from the contribution
 directory. Both commands use remote parquet range reads.
+
+## Final entity operating-point re-test
+
+**Friday was examined in earlier rounds; this is a pre-registered re-test,
+weaker evidence than a fresh day.**
+
+Tuning used only Monday through Thursday. Monday supplied the source
+allowlist ranks. The grid used top 0, 5, 10, or 25 sources by total observed
+Monday benign flow volume, with ties resolved by source string. The chosen
+25 ranged from 515 to 67,769 flows. These are volume-based exclusions.
+The capture does not establish that they are DNS servers, domain
+controllers, or gateways. The [frozen configuration](../ml/uc3_behaviour_cicids/prereg_v2.json)
+records source hashes, Monday counts, and the reason for each entry.
+
+The UC3 grid compared the existing two-minute trigger with three-minute
+triggers and floors of 1, 5, or 10 flows in each qualifying minute.
+Each setting was also tested with same-source UC1b-or-UC2 confirmation in
+the same or an adjacent five-minute bucket on Thursday. Using the following
+bucket would require waiting one extra bucket before emitting a confirmed
+alert. Flow scores were available for Thursday within the tuning period.
+Tuesday and Wednesday are additional UC3-only evidence. Thursday was the
+common ranking cohort. Numeric gate pass took priority, followed by excess
+false alerts, macro family recall, false alerts, and precision. The
+[full tuning table](../ml/uc3_behaviour_cicids/tuning_v2.json) records all 40
+candidates, including per-family counts.
+
+| Development day | Configuration | False alerts | Precision | Malicious windows detected |
+|---|---|---:|---:|---|
+| Tue | UC3 original | 273 | 8.70% | Patator 26/29 |
+| Tue | UC3 selected | 26 | 50.00% | Patator 26/29 |
+| Wed | UC3 original | 183 | 10.29% | DoS 21/27 |
+| Wed | UC3 selected | 24 | 44.19% | DoS 19/27 |
+| Thu | UC1b original | 597 | 2.29% | Infiltration 11/15, web 3/16 |
+| Thu | UC1b selected | 238 | 1.24% | Infiltration 0/15, web 3/16 |
+| Thu | UC2 original | 337 | 3.99% | Infiltration 14/15, web 0/16 |
+| Thu | UC2 selected | 62 | 0.00% | Infiltration 0/15, web 0/16 |
+| Thu | UC3 original | 140 | 16.17% | Infiltration 12/15, web 15/16 |
+| Thu | UC3 selected | 10 | 60.00% | Infiltration 0/15, web 15/16 |
+| Thu | UC3 selected settings plus confirmation | 5 | 50.00% | Infiltration 0/15, web 5/16 |
+
+### Frozen choices and single Friday re-test
+
+Commit `62cbfa88` froze the exact `prereg_v2.json` before the Friday
+command opened the Friday cohort. UC1b and UC2 retained their three-hit
+five-minute rules and original model thresholds, adding only Monday's
+top-25 exclusion. UC3 used that same exclusion, score ≥6, and at least
+three consecutive qualifying minutes with ≥5 flows in each minute.
+It did not require flow confirmation.
+
+| Frozen detector | Friday alerts | False alerts | Precision | Recall | Numeric gate |
+|---|---:|---:|---:|---:|---|
+| UC1b | 216 | 202 | 6.48% | 14/197 (7.11%) | Fail |
+| UC2 | 70 | 64 | 8.57% | 6/197 (3.05%) | Fail |
+| UC3 | 25 | 9 | 64.00% | 16/197 (8.12%) | Pass |
+
+UC3 detected 6/179 Bot, 5/6 DDoS and 5/12 PortScan windows. The selected
+configuration reduced its false-alert count from 129 to 9 and reduced
+malicious-window detections from 36 to 16. The numeric pass shows the
+workload tradeoff on this replay. Clock validation remains failed under
+the unchanged preregistration, so the nominal windows remain approximate
+and no production rule was deployed. UC3 is the strongest operating point
+for a demo. [Friday output](../ml/uc3_behaviour_cicids/friday_v2.json)
