@@ -27,3 +27,9 @@ With the approved HF classes deployed, export `AISOC_INGEST_TOKEN` from
 `--dry-run` to send to the ingest worker. The CLI batches each connector
 type separately and prints accepted and rejected counts. The limit applies
 to mapped rows. See [dataset scope and mappings](docs/datasets.md).
+
+## UC1 — Supervised Precinct6 scoring
+
+See [methods](docs/methods.md) for the input allowlist and
+[evaluation](docs/evaluation.md) for chronological and organization holdouts,
+baseline comparisons, SHAP, and live-rule evidence.

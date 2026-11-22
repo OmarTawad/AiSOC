@@ -49,7 +49,9 @@ The cohort-based split changes the test time window and is exploratory. Fit feat
 Compare a heuristic using action and port with logistic regression and
 XGBoost. Use validation scores to choose the strongest F1 subject to a
 maximum validation alert rate equivalent to 500 alerts per 10,000 events at
-0.38% prevalence. Evaluate once on the held-out time window. Report raw
+0.38% prevalence. This ceiling gives every method the same workload limit
+while allowing a comparison of detection coverage. It is an experiment
+budget. Evaluate once on the held-out time window. Report raw
 test precision and precision standardized to 3.86% and 0.38% from TPR and
 FPR. The latter assumes only prevalence changes.
 
