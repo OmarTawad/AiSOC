@@ -460,3 +460,42 @@ The single native Fusion build was tried with 3.0 GB free and
 Dockerfile build argument. The build command reached its 240-second
 overall cap after repeated PyPI TLS EOF errors while fetching Poetry.
 The verified read-only mount remains active. No volume was pruned.
+
+### Triage and console
+
+AiSOC normally auto-triages from `aisoc.alerts.fused`. The ordinary
+`aisoc-agents-triage` group was 28,505 messages behind when work resumed.
+The targeted run reads the existing 38 fused messages by reconciled alert
+ID and invokes the same worker. It does not POST summaries again, publish
+another Kafka message, or reset a consumer offset. The fused message
+payloads were also checked for ground-truth fields before being handed to
+the worker. The label ledger was joined only afterward.
+
+No `OPENAI_API_KEY` was configured. The configured local model was
+`llama3.2:3b-instruct-q4_K_M`. The normal gateway path repeatedly reported
+60-second local-model failures, and a short, direct health inference timed
+out while the ordinary queue was active. To prioritize the demo,
+`triage_demo.py --isolated` temporarily stops the ordinary consumer and
+runs its triage code in a temporary Agents container. The targeted run
+uses the same pinned Ollama model directly, with one attempt per model
+request, a 192-token response ceiling, and the triage stage only. The
+helper restores the ordinary consumer without changing its offsets.
+
+The first isolated pass used 50-second model timeouts. A 15-second
+follow-up processed only alerts with no stored verdict. The verdict
+ledger reconciled all 38 alerts. Every verdict came from the deterministic
+fallback. Ollama produced zero recorded verdicts, so this replay measures
+the fallback and leaves LLM triage quality unverified.
+
+| Local benchmark label | Alerts | Needs review | Likely benign | Auto-closed |
+|---|---:|---:|---:|---:|
+| Attack | 30 | 30 | 0 | 0 |
+| Benign | 8 | 1 | 7 | 0 |
+
+In the console, open Alerts and select Patator true positive
+`f5988a70-d1fd-5222-bf04-8e6c6af84ea9`. **Verdict & feedback** shows
+`needs_review`. **Raw Event Data** shows the ML explanation under
+`raw_event.top_reasons`, including 102 auth-port flows versus a baseline
+of zero (z=102). The boosted DoS true positive is
+`6894ea8b-6918-5d6f-9096-3730231a3527` and a benign false positive is
+`edb96e1b-e45e-50ce-b774-eef77c784dd4`.
