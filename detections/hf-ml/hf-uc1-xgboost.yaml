@@ -17,7 +17,8 @@ false_positives:
 - A benign connection is blocked by a routine firewall policy.
 - An approved batch job produces an unusually dense burst of events from one source.
 playbook: tpl-triage
-enabled: true
+enabled: false
+quarantine_reason: 'Retired after the Precinct6 shortcut audit: 28,510 of 29,768 replayed events matched.'
 author: AiSOC
 created: '2026-05-03'
 modified: '2026-05-03'

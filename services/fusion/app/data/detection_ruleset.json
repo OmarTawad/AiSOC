@@ -1,5 +1,5 @@
 {
-  "count": 1198,
+  "count": 1197,
   "rules": [
     {
       "category": "application",
@@ -14795,20 +14795,6 @@
       "service": "integration-control",
       "severity": "medium",
       "slug": "spike-ml-score-control"
-    },
-    {
-      "category": "hf-ml",
-      "id": "det-hf-ml-002",
-      "match_when": {
-        "ml_xgb_model_version": "uc1-xgb-d1dda19f1ae9",
-        "ml_xgb_score_gte": 0.4472928047180176
-      },
-      "mitre": [],
-      "name": "HF ML XGBoost score above threshold",
-      "product": "hf-datasets",
-      "service": "precinct6",
-      "severity": "high",
-      "slug": "hf-uc1-xgboost"
     },
     {
       "category": "identity",
