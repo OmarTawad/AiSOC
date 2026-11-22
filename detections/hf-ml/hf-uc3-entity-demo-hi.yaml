@@ -1,0 +1,27 @@
+id: det-hf-ml-005-hi
+name: HF ML UC3 entity deviation (UC1b corroborated)
+description: 'Passed the pre-registered entity gate on the Friday re-test (25 alerts/day, 9 false, 64%
+  precision); caveats: approximate capture clock, Friday previously examined, allowlist roles unverified
+  (see docs/evaluation.md). Corroboration matches a known-attack model.'
+version: 1.0.0
+severity: high
+tags:
+- tlp.white
+category: hf-ml
+log_source:
+  product: hf-datasets
+  service: cicids-entity-demo
+detection:
+  condition: |
+    method == "uc3-v2"
+    AND ml_entity_mode == "controlled-demo"
+    AND corroborated_by == "uc1b"
+    AND ml_entity_score >= 6
+false_positives:
+- A benign service generates sustained short flows during an expected workload burst.
+- A source IP represents multiple hosts behind a shared gateway.
+playbook: tpl-triage
+enabled: true
+author: AiSOC
+created: '2026-05-03'
+modified: '2026-05-03'

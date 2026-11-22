@@ -893,6 +893,8 @@
   "endpoint/windows-event-log-cleared": "det-endpoint-013",
   "endpoint/wmi-process-creation": "det-endpoint-006",
   "hf-ml/hf-uc1-xgboost": "det-hf-ml-002",
+  "hf-ml/hf-uc3-entity-demo": "det-hf-ml-005",
+  "hf-ml/hf-uc3-entity-demo-hi": "det-hf-ml-005-hi",
   "hf-ml/spike-ml-score-control": "det-hf-ml-001",
   "identity/1p-all-blocked": "det-identity-292",
   "identity/1p-anonymous-blocked": "det-identity-291",

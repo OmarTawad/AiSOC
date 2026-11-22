@@ -33,6 +33,7 @@ def retired() -> dict[str, str]:
         )
     for key, decision in ENRICHMENT.items():
         out[key] = f"not executable ({decision.kind}): {decision.reason}"
+    out["hf-ml/spike-ml-score-control"] = "Historical synthetic score control; inactive for the final demo."
     out["hf-ml/hf-uc1-xgboost"] = (
         "Retired after the Precinct6 shortcut audit: 28,510 of 29,768 replayed events matched."
     )

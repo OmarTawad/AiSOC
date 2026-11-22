@@ -1,5 +1,5 @@
 {
-  "count": 1197,
+  "count": 1198,
   "rules": [
     {
       "category": "application",
@@ -14784,17 +14784,35 @@
     },
     {
       "category": "hf-ml",
-      "id": "det-hf-ml-001",
+      "id": "det-hf-ml-005",
       "match_when": {
-        "hf_test_fixture": "day2-score-control",
-        "ml_anomaly_score_gte": 0.9
+        "corroborated_by": "none",
+        "method": "uc3-v2",
+        "ml_entity_mode": "controlled-demo",
+        "ml_entity_score_gte": 6
       },
       "mitre": [],
-      "name": "HF ML score spike control",
+      "name": "HF ML UC3 entity deviation",
       "product": "hf-datasets",
-      "service": "integration-control",
+      "service": "cicids-entity-demo",
       "severity": "medium",
-      "slug": "spike-ml-score-control"
+      "slug": "hf-uc3-entity-demo"
+    },
+    {
+      "category": "hf-ml",
+      "id": "det-hf-ml-005-hi",
+      "match_when": {
+        "corroborated_by": "uc1b",
+        "method": "uc3-v2",
+        "ml_entity_mode": "controlled-demo",
+        "ml_entity_score_gte": 6
+      },
+      "mitre": [],
+      "name": "HF ML UC3 entity deviation (UC1b corroborated)",
+      "product": "hf-datasets",
+      "service": "cicids-entity-demo",
+      "severity": "high",
+      "slug": "hf-uc3-entity-demo-hi"
     },
     {
       "category": "identity",

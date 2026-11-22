@@ -16,7 +16,8 @@ detection:
 false_positives:
 - A synthetic control is deliberately submitted with a score above threshold
 playbook: tpl-triage
-enabled: true
+enabled: false
+quarantine_reason: Historical synthetic score control; inactive for the final demo.
 author: AiSOC
 created: '2026-05-03'
 modified: '2026-05-03'

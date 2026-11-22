@@ -95,10 +95,44 @@ HF_ML_XGBOOST = {
 }
 
 
+def _uc3_demo_rule(*, slug: str, severity: str, corroborated_by: str) -> dict:
+    description = (
+        "Passed the pre-registered entity gate on the Friday re-test "
+        "(25 alerts/day, 9 false, 64% precision); caveats: approximate capture clock, "
+        "Friday previously examined, allowlist roles unverified (see docs/evaluation.md)."
+    )
+    fixture = {
+        "method": "uc3-v2",
+        "ml_entity_mode": "controlled-demo",
+        "corroborated_by": corroborated_by,
+    }
+    return {
+        "slug": slug,
+        "name": "HF ML UC3 entity deviation" + (" (UC1b corroborated)" if severity == "high" else ""),
+        "description": description + (" Corroboration matches a known-attack model." if severity == "high" else ""),
+        "severity": severity,
+        "mitre": [],
+        "log_source": {"product": "hf-datasets", "service": "cicids-entity-demo"},
+        "fields": [*fixture, "ml_entity_score"],
+        "match_when": {**fixture, "ml_entity_score_gte": 6},
+        "fp": [
+            "A benign service generates sustained short flows during an expected workload burst.",
+            "A source IP represents multiple hosts behind a shared gateway.",
+        ],
+        "playbook": "tpl-triage",
+        "positive": {**fixture, "ml_entity_score": 8},
+        "negative": {**fixture, "corroborated_by": "none" if corroborated_by == "uc1b" else "uc1b", "ml_entity_score": 8},
+    }
+
+
+HF_UC3_DEMO = _uc3_demo_rule(slug="hf-uc3-entity-demo", severity="medium", corroborated_by="none")
+HF_UC3_DEMO_HI = _uc3_demo_rule(slug="hf-uc3-entity-demo-hi", severity="high", corroborated_by="uc1b")
+
+
 CATEGORIES: dict[str, list[dict]] = {
     "cloud": [*CLOUD, *CLOUD_EXTRA, *FAMILIES_CLOUD, *COVERAGE_CLOUD],
     "identity": [*IDENTITY, *IDENTITY_EXTRA, *FAMILIES_IDENTITY, *COVERAGE_IDENTITY],
-    "hf-ml": [HF_ML_SPIKE, HF_ML_XGBOOST],
+    "hf-ml": [HF_ML_SPIKE, HF_ML_XGBOOST, HF_UC3_DEMO, HF_UC3_DEMO_HI],
     "endpoint": [*ENDPOINT, *ENDPOINT_EXTRA],
     "network": [*NETWORK, *NETWORK_EXTRA],
     "application": [*APPLICATION, *APPLICATION_EXTRA, *FAMILIES_APPLICATION, *COVERAGE_APPLICATION],
