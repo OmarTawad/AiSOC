@@ -2,8 +2,11 @@ datasets
 pandas
 pyarrow
 scikit-learn
-xgboost
+xgboost-cpu
 shap
 requests
 python-dotenv
 fsspec[http]
+numpy
+joblib
+matplotlib
