@@ -1,0 +1,67 @@
+{
+  "validated": false,
+  "invalid_rows": 0,
+  "days": {
+    "2017-07-03": {
+      "rows": 529450,
+      "range": [
+        "08:55:58",
+        "17:01:34"
+      ],
+      "backsteps": 208741,
+      "max_backstep_seconds": 28980
+    },
+    "2017-07-04": {
+      "rows": 445641,
+      "range": [
+        "08:53:00",
+        "17:00:00"
+      ],
+      "backsteps": 159376,
+      "max_backstep_seconds": 29040
+    },
+    "2017-07-05": {
+      "rows": 691390,
+      "range": [
+        "08:42:00",
+        "17:10:00"
+      ],
+      "backsteps": 163845,
+      "max_backstep_seconds": 30120
+    },
+    "2017-07-06": {
+      "rows": 458483,
+      "range": [
+        "08:59:00",
+        "17:04:00"
+      ],
+      "backsteps": 1,
+      "max_backstep_seconds": 29100
+    },
+    "2017-07-07": {
+      "rows": 702713,
+      "range": [
+        "08:59:00",
+        "17:02:00"
+      ],
+      "backsteps": 0,
+      "max_backstep_seconds": 0
+    }
+  },
+  "tuesday_schedule": {
+    "FTP-Patator": {
+      "rows": 7935,
+      "inside": 7934,
+      "minimum": "09:17:00",
+      "maximum": "10:30:00",
+      "share_inside": 0.9998739760554506
+    },
+    "SSH-Patator": {
+      "rows": 5897,
+      "inside": 5454,
+      "minimum": "14:09:00",
+      "maximum": "15:11:00",
+      "share_inside": 0.9248770561302357
+    }
+  }
+}

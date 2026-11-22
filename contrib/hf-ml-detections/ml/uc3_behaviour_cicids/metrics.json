@@ -1,0 +1,2385 @@
+{
+  "flow_counts": {
+    "invalid_clock_or_missing_source": 0,
+    "flows": 2827677,
+    "2017-07-03": 529450,
+    "2017-07-04": 445641,
+    "2017-07-05": 691390,
+    "2017-07-06": 458483,
+    "2017-07-07": 702713
+  },
+  "timestamp_approximate": true,
+  "by_day": {
+    "2017-07-04": {
+      "uc3": {
+        "source_windows": 25090,
+        "malicious_windows": 29,
+        "entity_alerts": 299,
+        "false_entity_alerts": 273,
+        "true_entity_alerts": 26,
+        "precision": 0.08695652173913043,
+        "recall": 0.896551724137931,
+        "families": {
+          "patator": {
+            "windows": 29,
+            "detected": 26,
+            "recall": 0.896551724137931
+          }
+        }
+      },
+      "ueba_reference": {
+        "source_windows": 25090,
+        "malicious_windows": 29,
+        "entity_alerts": 1501,
+        "false_entity_alerts": 1497,
+        "true_entity_alerts": 4,
+        "precision": 0.002664890073284477,
+        "recall": 0.13793103448275862,
+        "families": {
+          "patator": {
+            "windows": 29,
+            "detected": 4,
+            "recall": 0.13793103448275862
+          }
+        }
+      }
+    },
+    "2017-07-05": {
+      "uc3": {
+        "source_windows": 25604,
+        "malicious_windows": 27,
+        "entity_alerts": 204,
+        "false_entity_alerts": 183,
+        "true_entity_alerts": 21,
+        "precision": 0.10294117647058823,
+        "recall": 0.7777777777777778,
+        "families": {
+          "dos": {
+            "windows": 27,
+            "detected": 21,
+            "recall": 0.7777777777777778
+          }
+        }
+      },
+      "ueba_reference": {
+        "source_windows": 25604,
+        "malicious_windows": 27,
+        "entity_alerts": 1646,
+        "false_entity_alerts": 1628,
+        "true_entity_alerts": 18,
+        "precision": 0.010935601458080195,
+        "recall": 0.6666666666666666,
+        "families": {
+          "dos": {
+            "windows": 27,
+            "detected": 18,
+            "recall": 0.6666666666666666
+          }
+        }
+      }
+    },
+    "2017-07-06": {
+      "uc1b": {
+        "source_windows": 24157,
+        "malicious_windows": 31,
+        "entity_alerts": 611,
+        "false_entity_alerts": 597,
+        "true_entity_alerts": 14,
+        "precision": 0.022913256955810146,
+        "recall": 0.45161290322580644,
+        "families": {
+          "infiltration": {
+            "windows": 15,
+            "detected": 11,
+            "recall": 0.7333333333333333
+          },
+          "web": {
+            "windows": 16,
+            "detected": 3,
+            "recall": 0.1875
+          }
+        }
+      },
+      "uc2": {
+        "source_windows": 24157,
+        "malicious_windows": 31,
+        "entity_alerts": 351,
+        "false_entity_alerts": 337,
+        "true_entity_alerts": 14,
+        "precision": 0.039886039886039885,
+        "recall": 0.45161290322580644,
+        "families": {
+          "infiltration": {
+            "windows": 15,
+            "detected": 14,
+            "recall": 0.9333333333333333
+          },
+          "web": {
+            "windows": 16,
+            "detected": 0,
+            "recall": 0.0
+          }
+        }
+      },
+      "uc3": {
+        "source_windows": 24157,
+        "malicious_windows": 31,
+        "entity_alerts": 167,
+        "false_entity_alerts": 140,
+        "true_entity_alerts": 27,
+        "precision": 0.16167664670658682,
+        "recall": 0.8709677419354839,
+        "families": {
+          "infiltration": {
+            "windows": 15,
+            "detected": 12,
+            "recall": 0.8
+          },
+          "web": {
+            "windows": 16,
+            "detected": 15,
+            "recall": 0.9375
+          }
+        }
+      },
+      "ueba_reference": {
+        "source_windows": 24157,
+        "malicious_windows": 31,
+        "entity_alerts": 1636,
+        "false_entity_alerts": 1625,
+        "true_entity_alerts": 11,
+        "precision": 0.006723716381418093,
+        "recall": 0.3548387096774194,
+        "families": {
+          "infiltration": {
+            "windows": 15,
+            "detected": 11,
+            "recall": 0.7333333333333333
+          },
+          "web": {
+            "windows": 16,
+            "detected": 0,
+            "recall": 0.0
+          }
+        }
+      }
+    },
+    "2017-07-07": {
+      "uc1b": {
+        "source_windows": 23056,
+        "malicious_windows": 197,
+        "entity_alerts": 575,
+        "false_entity_alerts": 536,
+        "true_entity_alerts": 39,
+        "precision": 0.06782608695652174,
+        "recall": 0.19796954314720813,
+        "families": {
+          "bot": {
+            "windows": 179,
+            "detected": 24,
+            "recall": 0.1340782122905028
+          },
+          "dos": {
+            "windows": 6,
+            "detected": 6,
+            "recall": 1.0
+          },
+          "portscan": {
+            "windows": 12,
+            "detected": 9,
+            "recall": 0.75
+          }
+        }
+      },
+      "uc2": {
+        "source_windows": 23056,
+        "malicious_windows": 197,
+        "entity_alerts": 367,
+        "false_entity_alerts": 321,
+        "true_entity_alerts": 46,
+        "precision": 0.12534059945504086,
+        "recall": 0.233502538071066,
+        "families": {
+          "bot": {
+            "windows": 179,
+            "detected": 39,
+            "recall": 0.21787709497206703
+          },
+          "dos": {
+            "windows": 6,
+            "detected": 5,
+            "recall": 0.8333333333333334
+          },
+          "portscan": {
+            "windows": 12,
+            "detected": 2,
+            "recall": 0.16666666666666666
+          }
+        }
+      },
+      "uc3": {
+        "source_windows": 23056,
+        "malicious_windows": 197,
+        "entity_alerts": 165,
+        "false_entity_alerts": 129,
+        "true_entity_alerts": 36,
+        "precision": 0.21818181818181817,
+        "recall": 0.18274111675126903,
+        "families": {
+          "bot": {
+            "windows": 179,
+            "detected": 21,
+            "recall": 0.11731843575418995
+          },
+          "dos": {
+            "windows": 6,
+            "detected": 6,
+            "recall": 1.0
+          },
+          "portscan": {
+            "windows": 12,
+            "detected": 9,
+            "recall": 0.75
+          }
+        }
+      },
+      "ueba_reference": {
+        "source_windows": 23056,
+        "malicious_windows": 197,
+        "entity_alerts": 1566,
+        "false_entity_alerts": 1511,
+        "true_entity_alerts": 55,
+        "precision": 0.0351213282247765,
+        "recall": 0.27918781725888325,
+        "families": {
+          "bot": {
+            "windows": 179,
+            "detected": 48,
+            "recall": 0.2681564245810056
+          },
+          "dos": {
+            "windows": 6,
+            "detected": 2,
+            "recall": 0.3333333333333333
+          },
+          "portscan": {
+            "windows": 12,
+            "detected": 5,
+            "recall": 0.4166666666666667
+          }
+        }
+      }
+    }
+  },
+  "deployment_gates": {
+    "uc1b": {
+      "numeric_gate_passed": false,
+      "clock_validated": false,
+      "eligible_to_deploy": false
+    },
+    "uc2": {
+      "numeric_gate_passed": false,
+      "clock_validated": false,
+      "eligible_to_deploy": false
+    },
+    "uc3": {
+      "numeric_gate_passed": false,
+      "clock_validated": false,
+      "eligible_to_deploy": false
+    },
+    "ueba_reference": {
+      "numeric_gate_passed": false,
+      "clock_validated": false,
+      "eligible_to_deploy": false
+    }
+  },
+  "baseline": {
+    "monday_entities": 8234,
+    "monday_active_minutes": 45617,
+    "evaluation_active_minutes": 149501,
+    "global_fallback_minutes": 29102
+  },
+  "matched_comparison": {
+    "bot": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19790,
+          "malicious_windows": 39,
+          "entity_alerts": 296,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 37,
+          "precision": 0.125,
+          "recall": 0.9487179487179487,
+          "families": {
+            "bot": {
+              "windows": 39,
+              "detected": 37,
+              "recall": 0.9487179487179487
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 88,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4680,
+            "malicious_windows": 39,
+            "entity_alerts": 116,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 37,
+            "precision": 0.31896551724137934,
+            "recall": 0.9487179487179487,
+            "families": {
+              "bot": {
+                "windows": 39,
+                "detected": 37,
+                "recall": 0.9487179487179487
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_bot": {
+        "overall": {
+          "source_windows": 19790,
+          "malicious_windows": 39,
+          "entity_alerts": 230,
+          "false_entity_alerts": 228,
+          "true_entity_alerts": 2,
+          "precision": 0.008695652173913044,
+          "recall": 0.05128205128205128,
+          "families": {
+            "bot": {
+              "windows": 39,
+              "detected": 2,
+              "recall": 0.05128205128205128
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 92,
+            "false_entity_alerts": 92,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 50,
+            "false_entity_alerts": 50,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4680,
+            "malicious_windows": 39,
+            "entity_alerts": 45,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 2,
+            "precision": 0.044444444444444446,
+            "recall": 0.05128205128205128,
+            "families": {
+              "bot": {
+                "windows": 39,
+                "detected": 2,
+                "recall": 0.05128205128205128
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19790,
+          "malicious_windows": 39,
+          "entity_alerts": 369,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 5,
+          "precision": 0.013550135501355014,
+          "recall": 0.1282051282051282,
+          "families": {
+            "bot": {
+              "windows": 39,
+              "detected": 5,
+              "recall": 0.1282051282051282
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4680,
+            "malicious_windows": 39,
+            "entity_alerts": 91,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 5,
+            "precision": 0.054945054945054944,
+            "recall": 0.1282051282051282,
+            "families": {
+              "bot": {
+                "windows": 39,
+                "detected": 5,
+                "recall": 0.1282051282051282
+              }
+            }
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19790,
+          "malicious_windows": 39,
+          "entity_alerts": 141,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 3,
+          "precision": 0.02127659574468085,
+          "recall": 0.07692307692307693,
+          "families": {
+            "bot": {
+              "windows": 39,
+              "detected": 3,
+              "recall": 0.07692307692307693
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 37,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 30,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4680,
+            "malicious_windows": 39,
+            "entity_alerts": 31,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 3,
+            "precision": 0.0967741935483871,
+            "recall": 0.07692307692307693,
+            "families": {
+              "bot": {
+                "windows": 39,
+                "detected": 3,
+                "recall": 0.07692307692307693
+              }
+            }
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19790,
+          "malicious_windows": 39,
+          "entity_alerts": 1304,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 9,
+          "precision": 0.006901840490797546,
+          "recall": 0.23076923076923078,
+          "families": {
+            "bot": {
+              "windows": 39,
+              "detected": 9,
+              "recall": 0.23076923076923078
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 309,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 350,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4680,
+            "malicious_windows": 39,
+            "entity_alerts": 327,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 9,
+            "precision": 0.027522935779816515,
+            "recall": 0.23076923076923078,
+            "families": {
+              "bot": {
+                "windows": 39,
+                "detected": 9,
+                "recall": 0.23076923076923078
+              }
+            }
+          }
+        }
+      }
+    },
+    "dos": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19757,
+          "malicious_windows": 6,
+          "entity_alerts": 265,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 6,
+          "precision": 0.022641509433962263,
+          "recall": 1.0,
+          "families": {
+            "dos": {
+              "windows": 6,
+              "detected": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 88,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5258,
+            "malicious_windows": 5,
+            "entity_alerts": 54,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 5,
+            "precision": 0.09259259259259259,
+            "recall": 1.0,
+            "families": {
+              "dos": {
+                "windows": 5,
+                "detected": 5,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4642,
+            "malicious_windows": 1,
+            "entity_alerts": 80,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 1,
+            "precision": 0.0125,
+            "recall": 1.0,
+            "families": {
+              "dos": {
+                "windows": 1,
+                "detected": 1,
+                "recall": 1.0
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_dos": {
+        "overall": {
+          "source_windows": 19757,
+          "malicious_windows": 6,
+          "entity_alerts": 247,
+          "false_entity_alerts": 246,
+          "true_entity_alerts": 1,
+          "precision": 0.004048582995951417,
+          "recall": 0.16666666666666666,
+          "families": {
+            "dos": {
+              "windows": 6,
+              "detected": 1,
+              "recall": 0.16666666666666666
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 81,
+            "false_entity_alerts": 81,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5258,
+            "malicious_windows": 5,
+            "entity_alerts": 47,
+            "false_entity_alerts": 46,
+            "true_entity_alerts": 1,
+            "precision": 0.02127659574468085,
+            "recall": 0.2,
+            "families": {
+              "dos": {
+                "windows": 5,
+                "detected": 1,
+                "recall": 0.2
+              }
+            }
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 40,
+            "false_entity_alerts": 40,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4642,
+            "malicious_windows": 1,
+            "entity_alerts": 79,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "dos": {
+                "windows": 1,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19757,
+          "malicious_windows": 6,
+          "entity_alerts": 369,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 5,
+          "precision": 0.013550135501355014,
+          "recall": 0.8333333333333334,
+          "families": {
+            "dos": {
+              "windows": 6,
+              "detected": 5,
+              "recall": 0.8333333333333334
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5258,
+            "malicious_windows": 5,
+            "entity_alerts": 95,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 4,
+            "precision": 0.042105263157894736,
+            "recall": 0.8,
+            "families": {
+              "dos": {
+                "windows": 5,
+                "detected": 4,
+                "recall": 0.8
+              }
+            }
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4642,
+            "malicious_windows": 1,
+            "entity_alerts": 87,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 1,
+            "precision": 0.011494252873563218,
+            "recall": 1.0,
+            "families": {
+              "dos": {
+                "windows": 1,
+                "detected": 1,
+                "recall": 1.0
+              }
+            }
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19757,
+          "malicious_windows": 6,
+          "entity_alerts": 143,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 5,
+          "precision": 0.03496503496503497,
+          "recall": 0.8333333333333334,
+          "families": {
+            "dos": {
+              "windows": 6,
+              "detected": 5,
+              "recall": 0.8333333333333334
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5258,
+            "malicious_windows": 5,
+            "entity_alerts": 41,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 4,
+            "precision": 0.0975609756097561,
+            "recall": 0.8,
+            "families": {
+              "dos": {
+                "windows": 5,
+                "detected": 4,
+                "recall": 0.8
+              }
+            }
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 30,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4642,
+            "malicious_windows": 1,
+            "entity_alerts": 29,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 1,
+            "precision": 0.034482758620689655,
+            "recall": 1.0,
+            "families": {
+              "dos": {
+                "windows": 1,
+                "detected": 1,
+                "recall": 1.0
+              }
+            }
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19757,
+          "malicious_windows": 6,
+          "entity_alerts": 1299,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 4,
+          "precision": 0.003079291762894534,
+          "recall": 0.6666666666666666,
+          "families": {
+            "dos": {
+              "windows": 6,
+              "detected": 4,
+              "recall": 0.6666666666666666
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 309,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5258,
+            "malicious_windows": 5,
+            "entity_alerts": 354,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 4,
+            "precision": 0.011299435028248588,
+            "recall": 0.8,
+            "families": {
+              "dos": {
+                "windows": 5,
+                "detected": 4,
+                "recall": 0.8
+              }
+            }
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4642,
+            "malicious_windows": 1,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "dos": {
+                "windows": 1,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          }
+        }
+      }
+    },
+    "infiltration": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 261,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 2,
+          "precision": 0.007662835249042145,
+          "recall": 0.6666666666666666,
+          "families": {
+            "infiltration": {
+              "windows": 3,
+              "detected": 2,
+              "recall": 0.6666666666666666
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 88,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4817,
+            "malicious_windows": 3,
+            "entity_alerts": 45,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 2,
+            "precision": 0.044444444444444446,
+            "recall": 0.6666666666666666,
+            "families": {
+              "infiltration": {
+                "windows": 3,
+                "detected": 2,
+                "recall": 0.6666666666666666
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 79,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_infiltration": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 257,
+          "false_entity_alerts": 255,
+          "true_entity_alerts": 2,
+          "precision": 0.007782101167315175,
+          "recall": 0.6666666666666666,
+          "families": {
+            "infiltration": {
+              "windows": 3,
+              "detected": 2,
+              "recall": 0.6666666666666666
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 83,
+            "false_entity_alerts": 83,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4817,
+            "malicious_windows": 3,
+            "entity_alerts": 44,
+            "false_entity_alerts": 42,
+            "true_entity_alerts": 2,
+            "precision": 0.045454545454545456,
+            "recall": 0.6666666666666666,
+            "families": {
+              "infiltration": {
+                "windows": 3,
+                "detected": 2,
+                "recall": 0.6666666666666666
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 81,
+            "false_entity_alerts": 81,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 367,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 3,
+          "precision": 0.008174386920980926,
+          "recall": 1.0,
+          "families": {
+            "infiltration": {
+              "windows": 3,
+              "detected": 3,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4817,
+            "malicious_windows": 3,
+            "entity_alerts": 85,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 3,
+            "precision": 0.03529411764705882,
+            "recall": 1.0,
+            "families": {
+              "infiltration": {
+                "windows": 3,
+                "detected": 3,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 86,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 141,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 3,
+          "precision": 0.02127659574468085,
+          "recall": 1.0,
+          "families": {
+            "infiltration": {
+              "windows": 3,
+              "detected": 3,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 37,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4817,
+            "malicious_windows": 3,
+            "entity_alerts": 33,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 3,
+            "precision": 0.09090909090909091,
+            "recall": 1.0,
+            "families": {
+              "infiltration": {
+                "windows": 3,
+                "detected": 3,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 28,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 1298,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 3,
+          "precision": 0.0023112480739599386,
+          "recall": 1.0,
+          "families": {
+            "infiltration": {
+              "windows": 3,
+              "detected": 3,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 309,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 350,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4817,
+            "malicious_windows": 3,
+            "entity_alerts": 321,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 3,
+            "precision": 0.009345794392523364,
+            "recall": 1.0,
+            "families": {
+              "infiltration": {
+                "windows": 3,
+                "detected": 3,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      }
+    },
+    "patator": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19761,
+          "malicious_windows": 10,
+          "entity_alerts": 269,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 10,
+          "precision": 0.03717472118959108,
+          "recall": 1.0,
+          "families": {
+            "patator": {
+              "windows": 10,
+              "detected": 10,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5053,
+            "malicious_windows": 10,
+            "entity_alerts": 98,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 10,
+            "precision": 0.10204081632653061,
+            "recall": 1.0,
+            "families": {
+              "patator": {
+                "windows": 10,
+                "detected": 10,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 79,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_patator": {
+        "overall": {
+          "source_windows": 19761,
+          "malicious_windows": 10,
+          "entity_alerts": 248,
+          "false_entity_alerts": 248,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "patator": {
+              "windows": 10,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5053,
+            "malicious_windows": 10,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "patator": {
+                "windows": 10,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 47,
+            "false_entity_alerts": 47,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 40,
+            "false_entity_alerts": 40,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 79,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19761,
+          "malicious_windows": 10,
+          "entity_alerts": 364,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "patator": {
+              "windows": 10,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5053,
+            "malicious_windows": 10,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "patator": {
+                "windows": 10,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 86,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19761,
+          "malicious_windows": 10,
+          "entity_alerts": 146,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 8,
+          "precision": 0.0547945205479452,
+          "recall": 0.8,
+          "families": {
+            "patator": {
+              "windows": 10,
+              "detected": 8,
+              "recall": 0.8
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5053,
+            "malicious_windows": 10,
+            "entity_alerts": 51,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 8,
+            "precision": 0.1568627450980392,
+            "recall": 0.8,
+            "families": {
+              "patator": {
+                "windows": 10,
+                "detected": 8,
+                "recall": 0.8
+              }
+            }
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 37,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 30,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 28,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19761,
+          "malicious_windows": 10,
+          "entity_alerts": 1297,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 2,
+          "precision": 0.0015420200462606013,
+          "recall": 0.2,
+          "families": {
+            "patator": {
+              "windows": 10,
+              "detected": 2,
+              "recall": 0.2
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5053,
+            "malicious_windows": 10,
+            "entity_alerts": 311,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 2,
+            "precision": 0.006430868167202572,
+            "recall": 0.2,
+            "families": {
+              "patator": {
+                "windows": 10,
+                "detected": 2,
+                "recall": 0.2
+              }
+            }
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 350,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      }
+    },
+    "portscan": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 261,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 2,
+          "precision": 0.007662835249042145,
+          "recall": 0.6666666666666666,
+          "families": {
+            "portscan": {
+              "windows": 3,
+              "detected": 2,
+              "recall": 0.6666666666666666
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 88,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4644,
+            "malicious_windows": 3,
+            "entity_alerts": 81,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 2,
+            "precision": 0.024691358024691357,
+            "recall": 0.6666666666666666,
+            "families": {
+              "portscan": {
+                "windows": 3,
+                "detected": 2,
+                "recall": 0.6666666666666666
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_portscan": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 245,
+          "false_entity_alerts": 244,
+          "true_entity_alerts": 1,
+          "precision": 0.004081632653061225,
+          "recall": 0.3333333333333333,
+          "families": {
+            "portscan": {
+              "windows": 3,
+              "detected": 1,
+              "recall": 0.3333333333333333
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 83,
+            "false_entity_alerts": 83,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 47,
+            "false_entity_alerts": 47,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 40,
+            "false_entity_alerts": 40,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4644,
+            "malicious_windows": 3,
+            "entity_alerts": 75,
+            "false_entity_alerts": 74,
+            "true_entity_alerts": 1,
+            "precision": 0.013333333333333334,
+            "recall": 0.3333333333333333,
+            "families": {
+              "portscan": {
+                "windows": 3,
+                "detected": 1,
+                "recall": 0.3333333333333333
+              }
+            }
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 364,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "portscan": {
+              "windows": 3,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4644,
+            "malicious_windows": 3,
+            "entity_alerts": 86,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "portscan": {
+                "windows": 3,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 141,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 3,
+          "precision": 0.02127659574468085,
+          "recall": 1.0,
+          "families": {
+            "portscan": {
+              "windows": 3,
+              "detected": 3,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 37,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 30,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4644,
+            "malicious_windows": 3,
+            "entity_alerts": 31,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 3,
+            "precision": 0.0967741935483871,
+            "recall": 1.0,
+            "families": {
+              "portscan": {
+                "windows": 3,
+                "detected": 3,
+                "recall": 1.0
+              }
+            }
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19754,
+          "malicious_windows": 3,
+          "entity_alerts": 1296,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 1,
+          "precision": 0.0007716049382716049,
+          "recall": 0.3333333333333333,
+          "families": {
+            "portscan": {
+              "windows": 3,
+              "detected": 1,
+              "recall": 0.3333333333333333
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 309,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 350,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4814,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-07": {
+            "source_windows": 4644,
+            "malicious_windows": 3,
+            "entity_alerts": 319,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 1,
+            "precision": 0.003134796238244514,
+            "recall": 0.3333333333333333,
+            "families": {
+              "portscan": {
+                "windows": 3,
+                "detected": 1,
+                "recall": 0.3333333333333333
+              }
+            }
+          }
+        }
+      }
+    },
+    "web": {
+      "diagnostic_all": {
+        "overall": {
+          "source_windows": 19752,
+          "malicious_windows": 1,
+          "entity_alerts": 260,
+          "false_entity_alerts": 259,
+          "true_entity_alerts": 1,
+          "precision": 0.0038461538461538464,
+          "recall": 1.0,
+          "families": {
+            "web": {
+              "windows": 1,
+              "detected": 1,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 88,
+            "false_entity_alerts": 88,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 49,
+            "false_entity_alerts": 49,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4815,
+            "malicious_windows": 1,
+            "entity_alerts": 44,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 1,
+            "precision": 0.022727272727272728,
+            "recall": 1.0,
+            "families": {
+              "web": {
+                "windows": 1,
+                "detected": 1,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 79,
+            "false_entity_alerts": 79,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_web": {
+        "overall": {
+          "source_windows": 19752,
+          "malicious_windows": 1,
+          "entity_alerts": 267,
+          "false_entity_alerts": 267,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "web": {
+              "windows": 1,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 65,
+            "false_entity_alerts": 65,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 63,
+            "false_entity_alerts": 63,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4815,
+            "malicious_windows": 1,
+            "entity_alerts": 48,
+            "false_entity_alerts": 48,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "web": {
+                "windows": 1,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "diagnostic_isolation_forest": {
+        "overall": {
+          "source_windows": 19752,
+          "malicious_windows": 1,
+          "entity_alerts": 364,
+          "false_entity_alerts": 364,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "web": {
+              "windows": 1,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 105,
+            "false_entity_alerts": 105,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 91,
+            "false_entity_alerts": 91,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4815,
+            "malicious_windows": 1,
+            "entity_alerts": 82,
+            "false_entity_alerts": 82,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "web": {
+                "windows": 1,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 86,
+            "false_entity_alerts": 86,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "uc3": {
+        "overall": {
+          "source_windows": 19752,
+          "malicious_windows": 1,
+          "entity_alerts": 139,
+          "false_entity_alerts": 138,
+          "true_entity_alerts": 1,
+          "precision": 0.007194244604316547,
+          "recall": 1.0,
+          "families": {
+            "web": {
+              "windows": 1,
+              "detected": 1,
+              "recall": 1.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 43,
+            "false_entity_alerts": 43,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 37,
+            "false_entity_alerts": 37,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4815,
+            "malicious_windows": 1,
+            "entity_alerts": 31,
+            "false_entity_alerts": 30,
+            "true_entity_alerts": 1,
+            "precision": 0.03225806451612903,
+            "recall": 1.0,
+            "families": {
+              "web": {
+                "windows": 1,
+                "detected": 1,
+                "recall": 1.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 28,
+            "false_entity_alerts": 28,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      },
+      "ueba_reference": {
+        "overall": {
+          "source_windows": 19752,
+          "malicious_windows": 1,
+          "entity_alerts": 1295,
+          "false_entity_alerts": 1295,
+          "true_entity_alerts": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "families": {
+            "web": {
+              "windows": 1,
+              "detected": 0,
+              "recall": 0.0
+            }
+          }
+        },
+        "by_day": {
+          "2017-07-04": {
+            "source_windows": 5043,
+            "malicious_windows": 0,
+            "entity_alerts": 309,
+            "false_entity_alerts": 309,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-05": {
+            "source_windows": 5253,
+            "malicious_windows": 0,
+            "entity_alerts": 350,
+            "false_entity_alerts": 350,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          },
+          "2017-07-06": {
+            "source_windows": 4815,
+            "malicious_windows": 1,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "families": {
+              "web": {
+                "windows": 1,
+                "detected": 0,
+                "recall": 0.0
+              }
+            }
+          },
+          "2017-07-07": {
+            "source_windows": 4641,
+            "malicious_windows": 0,
+            "entity_alerts": 318,
+            "false_entity_alerts": 318,
+            "true_entity_alerts": 0,
+            "precision": 0.0,
+            "recall": null,
+            "families": {}
+          }
+        }
+      }
+    }
+  },
+  "diagnostic_thresholds": {
+    "all": {
+      "threshold": 0.8137125372886658,
+      "benign_validation": 8580,
+      "validation_false_positives": 81,
+      "validation_benign_fpr": 0.00944055944055944
+    },
+    "bot": {
+      "threshold": 0.7019410729408264,
+      "benign_validation": 8580,
+      "validation_false_positives": 85,
+      "validation_benign_fpr": 0.009906759906759906
+    },
+    "dos": {
+      "threshold": 0.35631659626960754,
+      "benign_validation": 8580,
+      "validation_false_positives": 85,
+      "validation_benign_fpr": 0.009906759906759906
+    },
+    "infiltration": {
+      "threshold": 0.8212341666221619,
+      "benign_validation": 8580,
+      "validation_false_positives": 82,
+      "validation_benign_fpr": 0.009557109557109558
+    },
+    "patator": {
+      "threshold": 0.834389328956604,
+      "benign_validation": 8580,
+      "validation_false_positives": 85,
+      "validation_benign_fpr": 0.009906759906759906
+    },
+    "portscan": {
+      "threshold": 0.8319019675254822,
+      "benign_validation": 8580,
+      "validation_false_positives": 75,
+      "validation_benign_fpr": 0.008741258741258742
+    },
+    "web": {
+      "threshold": 0.24481335282325745,
+      "benign_validation": 8580,
+      "validation_false_positives": 85,
+      "validation_benign_fpr": 0.009906759906759906
+    },
+    "isolation_forest": {
+      "threshold": 1.6138440519627424,
+      "benign_validation": 8580,
+      "validation_false_positives": 84,
+      "validation_benign_fpr": 0.009790209790209791
+    }
+  },
+  "diagnostic_all_family_training_counts": {
+    "benign": 24879,
+    "patator": 2326,
+    "dos": 7850,
+    "infiltration": 16,
+    "web": 1274,
+    "bot": 705,
+    "portscan": 210
+  }
+}
