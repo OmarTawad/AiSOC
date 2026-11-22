@@ -68,6 +68,7 @@ def map_precinct6(row):
         connector_type = "hf_auth"
     elif (
         (kind == "communication" and stream == "network_communication")
+        or (kind == "network_flow_data" and stream == "aws_vpc_flow_log")
         or (kind == "firewall_action" and stream == "cisco_asa")
         or (stream in WINDOWS_STREAMS and action == "filtering platform connection")
     ):
@@ -87,10 +88,14 @@ def map_precinct6(row):
 
 def map_advanced_siem(row):
     kind = key(row, "event_type")
-    if kind not in {"network", "firewall"}:
+    if kind == "auth":
+        connector_type = "hf_auth"
+    elif kind in {"network", "firewall", "ids_alert"}:
+        connector_type = "hf_network"
+    else:
         return None
     return envelope(
-        "advanced-siem", row["event_id"], "hf_network", row,
+        "advanced-siem", row["event_id"], connector_type, row,
         when=row.get("timestamp"), username=row.get("user"), hostname=None, family=kind,
     )
 

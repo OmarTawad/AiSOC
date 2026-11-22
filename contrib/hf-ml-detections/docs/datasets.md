@@ -53,7 +53,7 @@ included `block` (349), `Filtering Platform Connection` (145), `Logon` (20),
 | OCSF class | Included families |
 |---|---|
 | Authentication (`hf_auth`, 3002) | Explicit `auth_success`, `auth_failure`, `auth_event`, and `pam_event` message types, plus Windows security audit actions Logon, Logoff, Credential Validation, and Kerberos Authentication Service |
-| Network Activity (`hf_network`, 4001) | `communication` on `network_communication`, `firewall_action` on `cisco_asa`, and Windows Filtering Platform Connection |
+| Network Activity (`hf_network`, 4001) | `communication` on `network_communication`, `firewall_action` on `cisco_asa`, Windows Filtering Platform Connection, and `network_flow_data` on `aws_vpc_flow_log` |
 
 The mapper skips unsupported families, including generic management,
 diagnostic, and process records. These remain in the local sample.
@@ -95,9 +95,10 @@ The full alert-type distribution is also recorded in `data/advanced-siem-sample.
 | XSS | 762 | 762 |
 | Zero-Day Exploit | 810 | 810 |
 
-The `network` (12,335 rows) and `firewall` (12,448) families map to
-`hf_network`. This ingest slice excludes IDS alert rows and other event
-families. Measure label coverage again for the model's exact evaluation slice.
+The push CLI maps `auth` (12,516 rows) to `hf_auth`. It maps `network`
+(12,335), `firewall` (12,448), and `ids_alert` (12,500) to `hf_network`.
+It skips the `ai`, `cloud`, `endpoint`, and `iot` families. Measure label
+coverage for the model's exact evaluation slice.
 
 ## Shared envelope
 
