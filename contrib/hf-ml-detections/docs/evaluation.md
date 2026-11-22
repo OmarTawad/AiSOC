@@ -195,3 +195,111 @@ exact calibration records. Run `.venv/bin/python ml/cicids/benign_fpr.py` once
 after training the original chronological XGBoost model. The live scoring
 entry points reuse the cached Friday scores. Their send checks prohibit a
 replay when the recorded Friday FPR fails the gate.
+
+## Day 5 — CIC-IDS2017 entity windows
+
+The [preregistration](../ml/uc3_behaviour_cicids/prereg.json) was committed
+as `a007ad0b` before any Friday entity results. Friday had already been
+examined at flow level. The chronological UC1b and UC2 scores retain their
+exact Day 4 thresholds. The three-hit, source-IP, five-minute aggregation
+is the new test. The offline comparison counts an alert as false when its
+source window contains no attack-labeled flow.
+
+The projected scan processed all 2,827,677 source rows in batches of at
+most 32,768. It kept repeated flows, which can contribute to volume
+signals. No row was missing a parseable clock or source. The compact
+window artifact was 612 KiB and remains under the ignored `data/`
+directory. The nominal five-minute buckets are approximate because the
+clock validation failed. Friday had no corrected row-order backsteps, but
+the earlier days did and Tuesday SSH-Patator missed the schedule criterion.
+The [dataset clock audit](datasets.md#day-5-clock-validation) gives the
+day-by-day measurements and schedule source.
+
+### Alerts per capture day
+
+Each alert represents one source IP in one five-minute bucket.
+UC3 and UEBA also ran on Thursday to give a same-day comparison.
+
+| Day | Detector | Alerts | False alerts | Precision | Malicious windows detected |
+|---|---|---:|---:|---:|---:|
+| Tue | UC3 robust baseline | 299 | 273 | 8.70% | 26/29 (89.66%) |
+| Tue | UEBA-equivalent | 1,501 | 1,497 | 0.27% | 4/29 (13.79%) |
+| Wed | UC3 robust baseline | 204 | 183 | 10.29% | 21/27 (77.78%) |
+| Wed | UEBA-equivalent | 1,646 | 1,628 | 1.09% | 18/27 (66.67%) |
+| Thu | UC1b XGBoost | 611 | 597 | 2.29% | 14/31 (45.16%) |
+| Thu | UC2 Isolation Forest | 351 | 337 | 3.99% | 14/31 (45.16%) |
+| Thu | UC3 robust baseline | 167 | 140 | 16.17% | 27/31 (87.10%) |
+| Thu | UEBA-equivalent | 1,636 | 1,625 | 0.67% | 11/31 (35.48%) |
+| Fri | UC1b XGBoost | 575 | 536 | 6.78% | 39/197 (19.80%) |
+| Fri | UC2 Isolation Forest | 367 | 321 | 12.53% | 46/197 (23.35%) |
+| Fri | UC3 robust baseline | 165 | 129 | 21.82% | 36/197 (18.27%) |
+| Fri | UEBA-equivalent | 1,566 | 1,511 | 3.51% | 55/197 (27.92%) |
+
+| Full-stream attack family | Windows | UC1b recall | UC2 recall | UC3 recall | UEBA-equivalent recall |
+|---|---:|---:|---:|---:|---:|
+| Tue Patator | 29 | — | — | 89.66% | 13.79% |
+| Wed DoS and Heartbleed | 27 | — | — | 77.78% | 66.67% |
+| Thu web attacks | 16 | 18.75% | 0.00% | 93.75% | 0.00% |
+| Thu infiltration | 15 | 73.33% | 93.33% | 80.00% | 73.33% |
+| Fri Bot | 179 | 13.41% | 21.79% | 11.73% | 26.82% |
+| Fri DDoS | 6 | 100.00% | 83.33% | 100.00% | 33.33% |
+| Fri PortScan | 12 | 75.00% | 16.67% | 75.00% | 41.67% |
+
+### Matched source-window holdouts
+
+The diagnostic models used the fixed flow sample and source-window hash
+partitions. Entire test source-windows were excluded from model development.
+All-family and family-excluded XGBoost models used identical test windows.
+The matched Isolation Forest likewise fit only benign development flows
+from the same partition and calibrated on benign validation. It is
+separate from the frozen chronological deployment candidate. UC3 and
+UEBA use their original causal baselines. Small family denominators make
+some of the percentages sensitive to a single window.
+
+| Attack family | Matched test windows | UC1b all families | UC1b family held out | UC2 matched | UC3 | UEBA-equivalent |
+|---|---:|---:|---:|---:|---:|---:|
+| Bot | 39 | 94.87% | 5.13% | 12.82% | 7.69% | 23.08% |
+| DoS, DDoS and Heartbleed | 6 | 100.00% | 16.67% | 83.33% | 83.33% | 66.67% |
+| Infiltration | 3 | 66.67% | 66.67% | 100.00% | 100.00% | 100.00% |
+| Patator | 10 | 100.00% | 0.00% | 0.00% | 80.00% | 20.00% |
+| PortScan | 3 | 66.67% | 33.33% | 0.00% | 100.00% | 33.33% |
+| Web attacks | 1 | 100.00% | 0.00% | 0.00% | 100.00% | 0.00% |
+
+| False alerts in matched test windows | Tue | Wed | Thu | Fri |
+|---|---:|---:|---:|---:|
+| UC1b all families | 88 | 49 | 43 | 79 |
+| UC1b family held out, range across six fits | 65–92 | 46–63 | 40–48 | 43–91 |
+| UC2 matched | 105 | 91 | 82 | 86 |
+| UC3 | 43 | 37 | 30 | 28 |
+| UEBA-equivalent | 309 | 350 | 318 | 318 |
+
+### Behaviour and deployment
+
+UC3 fits frozen Monday medians and scaled MADs on five active-minute
+features, with minimum scales for zero-MAD inputs. Monday contributed
+45,617 active source-minutes from 8,234 sources. Pooled Monday baselines
+scored 29,102 later minutes from sources absent on Monday. An example
+PortScan-labeled bucket exceeded the threshold on short-flow share
+(0.50 vs a baseline of 0.00, z=10). This is an explanation of the feature
+deviation recorded for that bucket, not a live alert.
+
+The offline UEBA reference matches the service's per-entity Welford
+accumulation, minimum of 30 observations, omission of zero-variance
+features, absolute sample-standard-deviation z-scores, root-sum-of-squares
+capped at 10, threshold of 3, and score-before-update order. It feeds the
+same five constructed minute features. Peer-group blending and service
+transport are outside this comparison. The full AiSOC profile stayed off.
+See `services/ueba/app/services/baseline.py` and
+`services/ueba/app/services/scoring.py`.
+
+**No detector qualified.** Each candidate exceeded 25 false Friday
+alerts and had precision below 50%. The clock check independently blocks
+deployment. No rules 003–005 were installed, and no summary events or
+new console alert IDs were generated.
+
+[Entity metrics and family details](../ml/uc3_behaviour_cicids/metrics.json)
+
+To reproduce with the existing CIC model artifacts, run
+`.venv/bin/python ml/uc3_behaviour_cicids/clock.py` first, then
+`.venv/bin/python ml/uc3_behaviour_cicids/evaluate.py` from the contribution
+directory. Both commands use remote parquet range reads.

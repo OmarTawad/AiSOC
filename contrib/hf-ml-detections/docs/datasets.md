@@ -178,3 +178,32 @@ corrections to CIC-IDS2017 flow construction and labeling. This evaluation
 uses the pinned Hugging Face file as published, and absolute scores should
 be interpreted in light of those known errors.
 [Published label-quality audit and corrections](https://intrusion-detection.distrinet-research.be/WTMC2021/)
+
+### Day 5 clock validation
+
+For the entity experiment, the candidate correction adds 12 hours to
+unmarked hours below 8. Validation checked corrected source-row
+timestamps for backsteps within each capture date before any sorting.
+The full projected scan had zero unparseable rows.
+
+| Capture day | Corrected clock range | Backward row steps | Largest backstep |
+|---|---|---:|---:|
+| Mon Jul 3 | 08:55:58–17:01:34 | 208,741 | 8h 03m |
+| Tue Jul 4 | 08:53:00–17:00:00 | 159,376 | 8h 04m |
+| Wed Jul 5 | 08:42:00–17:10:00 | 163,845 | 8h 22m |
+| Thu Jul 6 | 08:59:00–17:04:00 | 1 | 8h 05m |
+| Fri Jul 7 | 08:59:00–17:02:00 | 0 | — |
+
+The correction placed FTP-Patator at 09:17–10:30. Of its 7,935 rows, 7,934
+(99.99%) fell within five minutes of the published 09:20–10:20 interval.
+It placed SSH-Patator at 14:09–15:11. Of its 5,897 rows, 5,454 (92.49%)
+fell within five minutes of the published 14:00–15:00 interval, below
+the preregistered 95% requirement. Export order may itself be imperfect.
+The reversal counts measure the source order and do not identify which
+individual timestamps are wrong. Friday's monotonicity alone does not
+validate the correction for the training and comparison days.
+[UNB capture schedule](https://www.unb.ca/cic/datasets/ids-2017.html)
+
+Both validation checks were required. The Day 5 windows are approximate
+corrected-clock buckets and cannot qualify a detector for deployment.
+[Clock validation output](../ml/uc3_behaviour_cicids/clock-validation.json)
