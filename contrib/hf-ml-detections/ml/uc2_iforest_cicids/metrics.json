@@ -1,0 +1,450 @@
+{
+  "cleanup": {
+    "sample_rows": 78183,
+    "nan_cells": 0,
+    "infinite_cells": 0,
+    "conflicting_rows_removed": 6707,
+    "duplicate_rows_removed": 8051,
+    "clean_rows": 63425
+  },
+  "benign_training_count": 25677,
+  "family_benign_training_count": 25165,
+  "benign_fpr_protocol": {
+    "cap": 0.01,
+    "gate": 0.02,
+    "calibration": {
+      "threshold": 1.6241101345232396,
+      "benign_validation": 7742,
+      "validation_false_positives": 77,
+      "validation_benign_fpr": 0.009945750452079566
+    },
+    "family_reference_calibration": {
+      "threshold": 1.6336047093187505,
+      "benign_validation": 8387,
+      "validation_false_positives": 83,
+      "validation_benign_fpr": 0.009896268033861929
+    },
+    "model_version": "uc2-cic-b3405e75dbc2",
+    "friday": {
+      "threshold": 1.6241101345232396,
+      "rows": 12984,
+      "attack_rows": 4464,
+      "alerts": 632,
+      "average_precision": 0.5480012470484994,
+      "roc_auc": 0.8150165328890907,
+      "precision": 0.03639240506329114,
+      "recall": 0.005152329749103943,
+      "f1": 0.00902668759811617,
+      "alerts_per_10k": 486.7529266789895,
+      "confusion_matrix": [
+        [
+          7911,
+          609
+        ],
+        [
+          4441,
+          23
+        ]
+      ],
+      "families": {
+        "bot": {
+          "rows": 1234,
+          "recall": 0.008914100486223663
+        },
+        "dos": {
+          "rows": 2999,
+          "recall": 0.0030010003334444814
+        },
+        "portscan": {
+          "rows": 231,
+          "recall": 0.012987012987012988
+        }
+      },
+      "benign_fpr": 0.07147887323943662,
+      "alerts_per_10k_benign": 714.7887323943662,
+      "deployment_gate_passed": false
+    }
+  },
+  "family_comparison": {
+    "dos": {
+      "xgboost_all_families": {
+        "threshold": 0.7154887318611145,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 2812,
+        "average_precision": 0.99775101170584,
+        "roc_auc": 0.9992217381121214,
+        "precision": 0.9683499288762447,
+        "recall": 0.9711126961483595,
+        "f1": 0.9697293447293447,
+        "alerts_per_10k": 2512.7334465195245,
+        "confusion_matrix": [
+          [
+            8298,
+            89
+          ],
+          [
+            81,
+            2723
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.9711126961483595
+          }
+        },
+        "benign_fpr": 0.010611660903779659,
+        "alerts_per_10k_benign": 106.1166090377966,
+        "deployment_gate_passed": true
+      },
+      "xgboost_held_out": {
+        "threshold": 0.16373451054096222,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 309,
+        "average_precision": 0.5266745820759403,
+        "roc_auc": 0.8062128537014778,
+        "precision": 0.6731391585760518,
+        "recall": 0.07417974322396577,
+        "f1": 0.13363315130099582,
+        "alerts_per_10k": 276.11473505495485,
+        "confusion_matrix": [
+          [
+            8286,
+            101
+          ],
+          [
+            2596,
+            208
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.07417974322396577
+          }
+        },
+        "benign_fpr": 0.012042446643615118,
+        "alerts_per_10k_benign": 120.42446643615118,
+        "deployment_gate_passed": true
+      },
+      "isolation_forest": {
+        "threshold": 1.6336047093187505,
+        "rows": 11191,
+        "attack_rows": 2804,
+        "alerts": 479,
+        "average_precision": 0.7158003092368976,
+        "roc_auc": 0.9118227899063271,
+        "precision": 0.8496868475991649,
+        "recall": 0.14514978601997147,
+        "f1": 0.24794395370088335,
+        "alerts_per_10k": 428.0225180948977,
+        "confusion_matrix": [
+          [
+            8315,
+            72
+          ],
+          [
+            2397,
+            407
+          ]
+        ],
+        "families": {
+          "dos": {
+            "rows": 2804,
+            "recall": 0.14514978601997147
+          }
+        },
+        "benign_fpr": 0.008584714439012759,
+        "alerts_per_10k_benign": 85.84714439012758,
+        "deployment_gate_passed": true
+      }
+    },
+    "portscan": {
+      "xgboost_all_families": {
+        "threshold": 0.7154887318611145,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 127,
+        "average_precision": 0.43306771201216643,
+        "roc_auc": 0.9932893038397935,
+        "precision": 0.2992125984251969,
+        "recall": 0.8260869565217391,
+        "f1": 0.4393063583815029,
+        "alerts_per_10k": 150.59883789873118,
+        "confusion_matrix": [
+          [
+            8298,
+            89
+          ],
+          [
+            8,
+            38
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.8260869565217391
+          }
+        },
+        "benign_fpr": 0.010611660903779659,
+        "alerts_per_10k_benign": 106.1166090377966,
+        "deployment_gate_passed": true
+      },
+      "xgboost_held_out": {
+        "threshold": 0.6751487255096436,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 96,
+        "average_precision": 0.022902660054360542,
+        "roc_auc": 0.8332875412776501,
+        "precision": 0.03125,
+        "recall": 0.06521739130434782,
+        "f1": 0.04225352112676056,
+        "alerts_per_10k": 113.83849163998578,
+        "confusion_matrix": [
+          [
+            8294,
+            93
+          ],
+          [
+            43,
+            3
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.06521739130434782
+          }
+        },
+        "benign_fpr": 0.011088589483724813,
+        "alerts_per_10k_benign": 110.88589483724813,
+        "deployment_gate_passed": true
+      },
+      "isolation_forest": {
+        "threshold": 1.6336047093187505,
+        "rows": 8433,
+        "attack_rows": 46,
+        "alerts": 72,
+        "average_precision": 0.02398498214480568,
+        "roc_auc": 0.8960917776476016,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 85.37886872998932,
+        "confusion_matrix": [
+          [
+            8315,
+            72
+          ],
+          [
+            46,
+            0
+          ]
+        ],
+        "families": {
+          "portscan": {
+            "rows": 46,
+            "recall": 0.0
+          }
+        },
+        "benign_fpr": 0.008584714439012759,
+        "alerts_per_10k_benign": 85.84714439012758,
+        "deployment_gate_passed": true
+      }
+    },
+    "patator": {
+      "xgboost_all_families": {
+        "threshold": 0.7154887318611145,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 871,
+        "average_precision": 0.9969548598298285,
+        "roc_auc": 0.9994687579207187,
+        "precision": 0.8978185993111366,
+        "recall": 0.9936467598475223,
+        "f1": 0.9433051869722557,
+        "alerts_per_10k": 949.4222803575321,
+        "confusion_matrix": [
+          [
+            8298,
+            89
+          ],
+          [
+            5,
+            782
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.9936467598475223
+          }
+        },
+        "benign_fpr": 0.010611660903779659,
+        "alerts_per_10k_benign": 106.1166090377966,
+        "deployment_gate_passed": true
+      },
+      "xgboost_held_out": {
+        "threshold": 0.6269198656082153,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 91,
+        "average_precision": 0.24858906717964493,
+        "roc_auc": 0.8469506189542144,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 99.19337257466753,
+        "confusion_matrix": [
+          [
+            8296,
+            91
+          ],
+          [
+            787,
+            0
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.0
+          }
+        },
+        "benign_fpr": 0.010850125193752235,
+        "alerts_per_10k_benign": 108.50125193752235,
+        "deployment_gate_passed": true
+      },
+      "isolation_forest": {
+        "threshold": 1.6336047093187505,
+        "rows": 9174,
+        "attack_rows": 787,
+        "alerts": 72,
+        "average_precision": 0.178808178678207,
+        "roc_auc": 0.7893369495872249,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 78.48266841072596,
+        "confusion_matrix": [
+          [
+            8315,
+            72
+          ],
+          [
+            787,
+            0
+          ]
+        ],
+        "families": {
+          "patator": {
+            "rows": 787,
+            "recall": 0.0
+          }
+        },
+        "benign_fpr": 0.008584714439012759,
+        "alerts_per_10k_benign": 85.84714439012758,
+        "deployment_gate_passed": true
+      }
+    },
+    "web": {
+      "xgboost_all_families": {
+        "threshold": 0.7154887318611145,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 471,
+        "average_precision": 0.8176077938493849,
+        "roc_auc": 0.9940299397254813,
+        "precision": 0.8110403397027601,
+        "recall": 0.9502487562189055,
+        "f1": 0.8751431844215349,
+        "alerts_per_10k": 535.8971441574696,
+        "confusion_matrix": [
+          [
+            8298,
+            89
+          ],
+          [
+            20,
+            382
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.9502487562189055
+          }
+        },
+        "benign_fpr": 0.010611660903779659,
+        "alerts_per_10k_benign": 106.1166090377966,
+        "deployment_gate_passed": true
+      },
+      "xgboost_held_out": {
+        "threshold": 0.27858981490135193,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 94,
+        "average_precision": 0.29568706283131035,
+        "roc_auc": 0.9096825399650134,
+        "precision": 0.06382978723404255,
+        "recall": 0.014925373134328358,
+        "f1": 0.024193548387096774,
+        "alerts_per_10k": 106.95187165775401,
+        "confusion_matrix": [
+          [
+            8299,
+            88
+          ],
+          [
+            396,
+            6
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.014925373134328358
+          }
+        },
+        "benign_fpr": 0.01049242875879337,
+        "alerts_per_10k_benign": 104.9242875879337,
+        "deployment_gate_passed": true
+      },
+      "isolation_forest": {
+        "threshold": 1.6336047093187505,
+        "rows": 8789,
+        "attack_rows": 402,
+        "alerts": 72,
+        "average_precision": 0.13015329452513472,
+        "roc_auc": 0.8442226093806631,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "alerts_per_10k": 81.92058254636477,
+        "confusion_matrix": [
+          [
+            8315,
+            72
+          ],
+          [
+            402,
+            0
+          ]
+        ],
+        "families": {
+          "web": {
+            "rows": 402,
+            "recall": 0.0
+          }
+        },
+        "benign_fpr": 0.008584714439012759,
+        "alerts_per_10k_benign": 85.84714439012758,
+        "deployment_gate_passed": true
+      }
+    }
+  }
+}

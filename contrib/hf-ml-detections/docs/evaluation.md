@@ -104,10 +104,8 @@ different denominator from the all-flow deployment gate. The Thursday
 alert rate had been 2.98%. This is a measured workload shift across days.
 The Friday labels were not used to retune the threshold.
 
-**Deployment paused.** Rule `det-hf-ml-003` was not installed and no
-CIC-IDS2017 replay was sent. Accordingly there are no live alert counts,
-live precision, or new console alert IDs for CIC-IDS2017. UC2 is pending
-completion of UC1b as agreed.
+**Original deployment decision.** The total-volume gate stopped the CIC
+replay. The subsequent benign-FPR protocol below supersedes that gate.
 
 [Model metrics](../ml/uc1b_xgboost_cicids/metrics.json) ·
 [Deployment preflight](../ml/uc1b_xgboost_cicids/deployment-check.json)
@@ -123,3 +121,77 @@ the sample and local evaluation:
 ```
 
 Model files and samples stay under the ignored `data/` directory.
+
+### Benign-FPR protocol
+
+The 24.35% replay result above used the original total-volume gate. The
+revised experiment uses a fixed 1% validation benign FPR and a 2% Friday
+benign FPR deployment gate. Before evaluating Friday, each model uses the
+highest-attainable benign firing rate at or below 1% on validation. A score
+tie that would cross the cap is excluded as a group. Thresholds are saved
+before test scoring. The Friday cohort, training dates and numeric feature
+allowlist stay fixed. Friday was previously inspected under the older
+total-volume protocol, so the new measurement is a frozen-threshold
+reanalysis of a known benchmark, not a new independent holdout.
+
+For the family comparison, the existing separate stratified folds hold the
+same test examples fixed for all models. The all-family XGBoost reference
+can see each family in training. Each leave-one-family-out XGBoost excludes
+that family from development. Isolation Forest fits only benign training
+examples, using signed log transforms and benign-training median imputation.
+That model uses 160 trees, seed 42, and no attack-labeled fitting or threshold
+selection. Feature deviations from benign medians describe unusual inputs,
+rather than decomposing the Isolation Forest score.
+
+### Friday at the frozen benign-FPR thresholds
+
+Isolation Forest used 25,677 benign flows from Monday through Wednesday.
+Both models froze thresholds using 7,742 benign Thursday flows. Each
+flagged 77, for a validation benign FPR of 0.995%. The Friday cohort
+contained 8,520 benign and 4,464 attack-labeled flows.
+
+| Model | Threshold | AP | Precision | Recall | F1 | Friday benign FPR | Alerts / 10k total | False alerts / 10k benign | TN / FP / FN / TP |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| XGBoost | 0.18090591 | 0.8636 | 89.64% | 43.59% | 0.5866 | 2.64% | 1,672 | 264 | 8,295 / 225 / 2,518 / 1,946 |
+| Isolation Forest | 1.62411013 | 0.5480 | 3.64% | 0.52% | 0.0090 | 7.15% | 487 | 715 | 7,911 / 609 / 4,441 / 23 |
+
+| Friday attack family | Rows | XGBoost recall | Isolation Forest recall |
+|---|---:|---:|---:|
+| Bot | 1,234 | 0.00% | 0.89% |
+| DDoS | 2,999 | 64.49% | 0.30% |
+| PortScan | 231 | 5.19% | 1.30% |
+
+Both models exceeded the 2% Friday benign-FPR deployment gate. The rate
+increased by 1.65 percentage points for XGBoost and 6.15 points for
+Isolation Forest. Isolation Forest ranked attacks above benign flows
+more often than chance overall, but its validation operating point mostly
+flagged benign Friday flows. Neither threshold was adjusted after testing.
+Rules `det-hf-ml-003` and `det-hf-ml-004` were not deployed, and neither
+model sent CIC flow events. There are no new live alert IDs.
+
+### Matched family-generalization comparison
+
+Each row uses the same attack examples and 8,387 benign reference flows
+across all three columns. Thresholds come from the benign portion of the
+separate stratified validation fold. Isolation Forest trained on 25,165
+benign flows in that fold's training partition.
+
+| Test family | Attack rows | XGBoost with all families | XGBoost with this family held out | Isolation Forest |
+|---|---:|---:|---:|---:|
+| DoS, DDoS, Heartbleed | 2,804 | 97.11% | 7.42% | 14.51% |
+| PortScan | 46 | 82.61% | 6.52% | 0.00% |
+| FTP and SSH Patator | 787 | 99.36% | 0.00% | 0.00% |
+| Web attacks | 402 | 95.02% | 1.49% | 0.00% |
+
+Isolation Forest caught more unseen DoS-family examples than supervised
+XGBoost in this comparison, but detected none of the other held families
+at its frozen threshold. The large gap from the all-family reference shows
+how a split that lets the supervised model see each attack family can
+overstate coverage of novel attacks.
+
+The [XGBoost metrics](../ml/uc1b_xgboost_cicids/metrics.json) and
+[Isolation Forest metrics](../ml/uc2_iforest_cicids/metrics.json) retain the
+exact calibration records. Run `.venv/bin/python ml/cicids/benign_fpr.py` once
+after training the original chronological XGBoost model. The live scoring
+entry points reuse the cached Friday scores. Their send checks prohibit a
+replay when the recorded Friday FPR fails the gate.

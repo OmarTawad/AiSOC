@@ -19,9 +19,6 @@ from source import FEATURES, disk_check
 from mapper import map_cicids
 from push import push_batch
 
-DEPLOYMENT_CEILING = 0.05
-
-
 def prepare():
     rows, matrix, _, target, _ = load()
     _, _, test = chronological(rows)
@@ -31,8 +28,14 @@ def prepare():
     model = xgb.Booster({"nthread": 2})
     model.load_model(path)
     version = "uc1b-cic-" + sha256(path.read_bytes()).hexdigest()[:12]
-    threshold = json.loads((HERE / "metrics.json").read_text())["day_test"]["xgboost"]["threshold"]
-    scores = model.predict(data).astype(np.float64)
+    protocol = json.loads((HERE / "metrics.json").read_text())["benign_fpr_protocol"]
+    threshold = protocol["calibration"]["threshold"]
+    if version != protocol["model_version"]:
+        raise ValueError("Model digest differs from the frozen calibration")
+    with np.load(ARTIFACTS / "fpr-friday.npz") as archive:
+        scores = archive["xgb"].astype(np.float64)
+    if len(scores) != len(rows):
+        raise ValueError("Frozen scores differ in size from the Friday cohort")
     flags = scores >= threshold
     labels = rows["attack_label"].tolist()
     report = {
@@ -40,13 +43,15 @@ def prepare():
         "benign": int((target[test] == 0).sum()), "expected_matches": int(flags.sum()),
         "expected_by_label": dict(Counter(label for label, hit in zip(labels, flags, strict=True) if hit)),
         "alert_rate": float(flags.mean()),
+        "benign_fpr": float(flags[target[test] == 0].mean()),
+        "benign_fpr_gate": protocol["gate"],
     }
     return rows, model, data, scores, flags, report
 
 
 def send(rows, model, matrix, scores, flags, report, args):
-    if report["benign"] <= report["flows"] / 2 or report["alert_rate"] > DEPLOYMENT_CEILING:
-        raise SystemExit("CIC replay is outside the approved benign-majority alert-volume gate")
+    if report["benign_fpr"] > report["benign_fpr_gate"]:
+        raise SystemExit("CIC replay exceeds the frozen Friday benign-FPR deployment gate")
     token = os.environ.get("AISOC_INGEST_TOKEN")
     if not token:
         raise SystemExit("Set AISOC_INGEST_TOKEN before replay")
@@ -97,7 +102,7 @@ def main():
     *details, report = prepare()
     if args.send:
         report = send(*details, report, args)
-    save(ARTIFACTS / ("uc1b-sent.json" if args.send else "uc1b-preview.json"), report)
+    save(ARTIFACTS / ("uc1b-sent.json" if args.send else "uc1b-fpr-preview.json"), report)
     print(json.dumps(report), flush=True)
 
 
