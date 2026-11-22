@@ -76,10 +76,29 @@ HF_ML_SPIKE = {
 }
 
 
+HF_ML_XGBOOST = {
+    "slug": "hf-uc1-xgboost",
+    "name": "HF ML XGBoost score above threshold",
+    "description": "Flags Precinct6 events scored by the validated UC1 model for analyst review.",
+    "severity": "high",
+    "mitre": [],
+    "log_source": {"product": "hf-datasets", "service": "precinct6"},
+    "fields": ["ml_xgb_model_version", "ml_xgb_score"],
+    "match_when": {"ml_xgb_model_version": "uc1-xgb-d1dda19f1ae9", "ml_xgb_score_gte": 0.4472928047180176},
+    "fp": [
+        "A benign connection is blocked by a routine firewall policy.",
+        "An approved batch job produces an unusually dense burst of events from one source.",
+    ],
+    "playbook": "tpl-triage",
+    "positive": {"ml_xgb_model_version": "uc1-xgb-d1dda19f1ae9", "ml_xgb_score": 0.99},
+    "negative": {"ml_xgb_model_version": "uc1-xgb-d1dda19f1ae9", "ml_xgb_score": 0.1},
+}
+
+
 CATEGORIES: dict[str, list[dict]] = {
     "cloud": [*CLOUD, *CLOUD_EXTRA, *FAMILIES_CLOUD, *COVERAGE_CLOUD],
     "identity": [*IDENTITY, *IDENTITY_EXTRA, *FAMILIES_IDENTITY, *COVERAGE_IDENTITY],
-    "hf-ml": [HF_ML_SPIKE],
+    "hf-ml": [HF_ML_SPIKE, HF_ML_XGBOOST],
     "endpoint": [*ENDPOINT, *ENDPOINT_EXTRA],
     "network": [*NETWORK, *NETWORK_EXTRA],
     "application": [*APPLICATION, *APPLICATION_EXTRA, *FAMILIES_APPLICATION, *COVERAGE_APPLICATION],

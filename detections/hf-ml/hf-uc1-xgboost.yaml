@@ -1,0 +1,23 @@
+id: det-hf-ml-002
+name: HF ML XGBoost score above threshold
+description: Flags Precinct6 events scored by the validated UC1 model for analyst review.
+version: 1.0.0
+severity: high
+tags:
+- tlp.white
+category: hf-ml
+log_source:
+  product: hf-datasets
+  service: precinct6
+detection:
+  condition: |
+    ml_xgb_model_version == "uc1-xgb-d1dda19f1ae9"
+    AND ml_xgb_score >= 0.4472928047180176
+false_positives:
+- A benign connection is blocked by a routine firewall policy.
+- An approved batch job produces an unusually dense burst of events from one source.
+playbook: tpl-triage
+enabled: true
+author: AiSOC
+created: '2026-05-03'
+modified: '2026-05-03'
