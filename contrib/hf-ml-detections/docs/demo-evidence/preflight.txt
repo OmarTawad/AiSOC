@@ -1,0 +1,11 @@
+PASS Docker running
+PASS AiSOC containers running and healthy where probes exist
+PASS AISOC_PULL_POLICY=never effective for ingest and Fusion
+PASS Ingest binary contains hf_auth and hf_network
+PASS Fusion read-only ruleset has 005 and 005-hi active and 002 retired
+PASS Demo cache, frozen model, and virtual environment available
+PASS Ingest and API tokens can be minted
+PASS Disk free > 1.5 GiB
+PASS Console answers on :3000
+PASS make smoke passes
+READY FOR DEMO

@@ -1,20 +1,22 @@
-# CIC-IDS2017 live demo
+# Five-minute live demo
 
-## Before the audience joins
+## Setup checklist
 
-- Start AiSOC 15 minutes early. Confirm the Fusion ruleset contains both UC3 severity tiers and the Python environment can load the frozen UC1b model.
-- Prepare the cached slices with `contrib/hf-ml-detections/demo/run_demo.sh --prepare`. The cache and reconstructed Monday baselines live under the gitignored `data/demo/`. Preparation checks the 1.5 GiB free-space floor and caps the combined cache at 100 MB. Mixed uses both cached slices without storing a second copy.
-- Set `AISOC_INGEST_TOKEN` and `AISOC_API_TOKEN` in the demo shell. From the repository root, capture the tokens without echoing them:
+- Start the local stack 15 minutes early with `~/aisoc-start.sh`. The local recovery steps are in [Codespaces setup](codespaces-fixes.md).
+- From `contrib/hf-ml-detections`, run `./demo/run_demo.sh --prepare` if the cache has not been built. Mixed shares the same cache. The cache and the frozen model stay local.
+- Run `./demo/preflight.sh` and wait for `READY FOR DEMO`. Resolve any failures using the commands it prints. The wrapper mints missing ingest and API tokens quietly.
+- Open the console **Alerts** page with **15m** selected. Keep this guide and the [evidence walkthrough](demo-evidence/walkthrough.md) open locally. The time picker filters event time, and replay keeps the relative capture times. Some earlier alerts will be outside the 15-minute view. Open the exact terminal link to find them.
 
-  ```bash
-  export AISOC_INGEST_TOKEN="$(make -s ingest-token ARGS=--quiet)"
-  export AISOC_API_TOKEN="$(make -s api-token ARGS=--quiet)"
-  ```
+## What to say and show
 
-- Open the console Alerts page with **15m** selected. The replay shifts the last capture timestamp to the time playback starts while preserving flow spacing, so earlier replay events can fall outside a 15-minute **event time** filter. Open the direct URL printed by the replay or widen the picker to at least 4 hours for the Mixed list.
-- Rehearse with the cache. Record a successful run showing the terminal and console together and keep the video available locally for the fallback.
-
-## During the demo
+| Time | Action and talking point |
+|---|---|
+| 0:00–0:30 | Show the [architecture](../README.md#architecture) and the preflight result. “We score real CIC-IDS2017 lab flows and send live telemetry through the normal AiSOC ingest and Fusion path.” |
+| 0:30–2:30 | Run the command below. “Every flow is scored. We send up to eight flows per replayed minute to bound ingestion load.” Point to `suspicious`, then `ALERT pending, checking XGBoost corroboration…`, then `ALERT`. “After three consecutive qualifying minutes, the detector checks the adjacent five-minute windows. If XGBoost agrees, severity becomes High.” |
+| 2:30–3:30 | Show **Alerts**, then open the first High link printed by the terminal. In **Raw** / **Raw Event Data**, expand `raw_event.top_reasons` and `raw_event.corroborated_by`. “This host had 102 auth-port flows in a minute against a Monday baseline of zero. UC1b corroboration raised the severity.” |
+| 3:30–4:05 | Open **Detection Confidence** in the alert overview and **Verdict & feedback** under the investigation tab. Discuss the confidence factors separately from the High severity. Fresh alerts may still have no verdict. Use the historical Patator alert from the evidence walkthrough to show the recorded fallback verdict. |
+| 4:05–4:35 | Show the first Medium link. “This benign source had a real traffic increase and no XGBoost corroboration. The alert is an expected cost of monitoring behavioural changes. We report false alerts explicitly and keep this case visible for review.” |
+| 4:35–5:00 | Close on the README's [per-family comparison](../README.md#matched-entity-window-comparison). “XGBoost recall falls on unseen families. Behavioural detection passed the numeric workload gate on the Friday re-test, with lower recall and an approximate clock.” |
 
 Run from `contrib/hf-ml-detections`:
 
@@ -22,23 +24,28 @@ Run from `contrib/hf-ml-detections`:
 ./demo/run_demo.sh patator --source cache
 ```
 
-1. **Start the replay.** “These are CIC-IDS2017 flows captured during a lab exercise. The cached slice contains the same public dataset rows the Hugging Face mode reads. We score every flow as its capture minute is replayed, and send up to eight of those flows per minute as network telemetry.” The default pacing target is 0.2 real seconds per capture minute. Scoring, ingest, and API checks also contribute to runtime.
-2. **Watch persistence build.** “The source has to exceed its Monday baseline for three consecutive minutes with at least five flows per minute. The pending message means we're checking the same or adjacent five-minute windows for XGBoost corroboration.” A summary is sent after the lookahead finishes. Each scenario command, including Mixed, sends at most 15 summaries. Mixed reserves seven for Patator and eight for DoS.
-3. **Open a console link.** Prefer a High SSH-Patator alert with many auth-port flows. “UC3 raised the alert. XGBoost corroboration raised its severity.” In **Raw** / **Raw Event Data**, expand `raw_event.top_reasons` and point to the observed count, Monday baseline, and z-score. Use **Start AI investigation** to show the workflow. The local model timed out during Day 6, so continue the walkthrough if the investigation takes too long.
-4. **Close on the summary.** Distinguish flows scored, telemetry accepted, and alerts confirmed by the API. The detector settings are frozen and the capture clock is approximate. Privately rerun with `--presenter-notes` to compare confirmed alerts with the dataset labels. Those labels stay in the replay process and never enter AiSOC.
+The pacing target is 0.2 real seconds per capture minute. Scoring,
+ingest and API checks also contribute to runtime. The final clean-shell
+Patator rehearsal took **113.2 seconds** and confirmed **15/15** alerts.
+The earlier default rehearsals took 163.1 seconds for DoS and 256.9
+seconds for Mixed. The alert cap is 15 per command. Mixed reserves seven
+for Patator and eight for DoS. [Full terminal transcript](demo-evidence/patator.txt)
 
-Use `dos` for Wednesday's DoS slice, or `mixed` to play both slices consecutively. `patator --source hf` opens the pinned Hugging Face parquet and projects the required columns. The source has one row group, so the remote reader scans projected columns and retains only the requested slice. Allow about a minute for the remote read. Reduce `--telemetry-rate` if Fusion is already backlogged. Every flow is still scored. `--dry-run` scores and displays events without sending them. Ctrl+C stops playback and prints the totals collected so far.
+The local CPU-only 3B model did not return during the warm-up. The single
+investigation reached the agent's 120-second budget and failed without a
+report. Keep the live walkthrough on the verdict panel and confidence
+breakdown. [Investigation evidence](demo-evidence/walkthrough.md#local-investigation-timing)
 
-## Verified rehearsal timings
+Use `--dry-run` for a rehearsal without pushes. Ctrl+C prints the totals
+collected so far. The optional `--presenter-notes` summary uses benchmark
+labels locally. Keep it off in front of the audience.
 
-These runs used the cache command above with each scenario and the defaults.
+## If the live path fails
 
-| Scenario | Wall time | Alerts confirmed |
-|---|---:|---:|
-| Patator | 112.0 s | 15/15 |
-| DoS | 163.1 s | 15/15 |
-| Mixed | 256.9 s | 15/15 |
-
-## Fallback
-
-If the Hugging Face read stalls, switch to the prepared cache. If local ingest, Fusion, or the console is unavailable, play the recorded rehearsal and identify it as a recording. Show the pending line, the console alert link, and the raw explanation.
+If preflight fails, show its fix list and move to the saved evidence
+unless the repair is immediate. If the terminal or console fails,
+open the [transcript](demo-evidence/patator.txt) and
+[walkthrough](demo-evidence/walkthrough.md). Explain clearly that these
+are from the prior clean rehearsal. Use the IDs and exact fields to
+walk the same High and Medium examples. The transcript and walkthrough
+are the fallback for this live-only presentation.

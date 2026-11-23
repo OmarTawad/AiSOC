@@ -1,0 +1,155 @@
+CIC-IDS2017 | patator | 2017-07-04 13:50–15:20 (capture clock) | 100,085 flows | run f58c4421387c
+13:50  495 flows | 8 → AiSOC ✓ | 52.84.145.207 flows 26 vs baseline 3 (z=7.76) suspicious 1/3
+13:51  1,169 flows | 8 → AiSOC ✓ | 52.84.145.70 flows 29 vs baseline 1 (z=28.00) suspicious 1/3
+13:52  739 flows | 8 → AiSOC ✓ | 52.84.145.164 flows 32 vs baseline 1 (z=31.00) suspicious 1/3
+13:53  561 flows | 8 → AiSOC ✓ | 52.84.145.164 flows 25 vs baseline 1 (z=24.00) suspicious 2/3
+13:54  551 flows | 8 → AiSOC ✓ | 52.84.145.136 flows 32 vs baseline 6.5 (z=6.88) suspicious 1/3
+13:55  589 flows | 8 → AiSOC ✓ | 52.84.145.117 flows 28 vs baseline 2 (z=17.54) suspicious 1/3
+13:56  497 flows | 8 → AiSOC ✓ | 52.84.145.117 flows 28 vs baseline 2 (z=17.54) suspicious 2/3
+13:57  1,118 flows | 8 → AiSOC ✓ | 52.84.145.70 flows 27 vs baseline 1 (z=26.00) suspicious 1/3
+13:58  289 flows | 8 → AiSOC ✓ | 52.84.145.65 flows 31 vs baseline 2.5 (z=12.82) suspicious 1/3
+13:59  606 flows | 8 → AiSOC ✓ | 172.217.12.206 distinct_dst_ports 15 vs baseline 1 (z=14.00) suspicious 1/3
+14:00  988 flows | 8 → AiSOC ✓
+14:01  911 flows | 8 → AiSOC ✓ | 52.84.145.164 flows 24 vs baseline 1 (z=23.00) suspicious 1/3
+14:02  1,444 flows | 8 → AiSOC ✓ | 54.192.37.69 flows 19 vs baseline 1.5 (z=17.50) suspicious 1/3
+14:03  883 flows | 8 → AiSOC ✓ | 54.192.37.158 flows 12 vs baseline 1 (z=11.00) suspicious 1/3
+14:04  849 flows | 8 → AiSOC ✓ | 54.192.37.17 flows 13 vs baseline 1 (z=12.00) suspicious 1/3
+14:05  961 flows | 8 → AiSOC ✓ | 54.192.37.234 flows 23 vs baseline 1 (z=22.00) suspicious 1/3
+14:06  1,092 flows | 8 → AiSOC ✓ | 54.192.37.234 flows 11 vs baseline 1 (z=10.00) suspicious 2/3
+14:07  513 flows | 8 → AiSOC ✓ | 54.192.37.234 flows 13 vs baseline 1 (z=12.00) suspicious 3/3
+       54.192.37.234 ALERT pending, checking XGBoost corroboration…
+14:08  1,336 flows | 8 → AiSOC ✓ | 160.92.49.14 flows 52 vs baseline 1 (z=51.00) suspicious 1/3
+14:09  515 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 89 vs baseline 0 (z=89.00) suspicious 1/3
+14:10  790 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 84 vs baseline 0 (z=84.00) suspicious 2/3
+14:11  700 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 95 vs baseline 0 (z=95.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+14:12  848 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+14:13  982 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 102 vs baseline 0 (z=102.00) suspicious 3/3
+14:14  1,741 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 98 vs baseline 0 (z=98.00) suspicious 3/3
+       54.192.37.234 z=12.0 ALERT → AiSOC (MEDIUM)
+14:15  1,276 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 79 vs baseline 0 (z=79.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       MEDIUM alert (1.4s) → http://127.0.0.1:3000/alerts/a4c70ab0-47ba-577c-a495-de780dbf19fa
+14:16  2,604 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 84 vs baseline 0 (z=84.00) suspicious 3/3
+14:17  2,666 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 89 vs baseline 0 (z=89.00) suspicious 3/3
+14:18  1,815 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 93 vs baseline 0 (z=93.00) suspicious 3/3
+14:19  994 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 99 vs baseline 0 (z=99.00) suspicious 3/3
+       172.16.0.1 z=102.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:20  1,009 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 104 vs baseline 0 (z=104.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/5611fb1b-aa56-5e51-ac89-2b9925fd61d0
+14:21  1,161 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 98 vs baseline 0 (z=98.00) suspicious 3/3
+14:22  1,112 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 94 vs baseline 0 (z=94.00) suspicious 3/3
+14:23  2,096 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 94 vs baseline 0 (z=94.00) suspicious 3/3
+14:24  848 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 92 vs baseline 0 (z=92.00) suspicious 3/3
+       172.16.0.1 z=99.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:25  1,687 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/311db490-63cf-51ca-a3c8-7934c7eda946
+14:26  596 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 110 vs baseline 0 (z=110.00) suspicious 3/3
+14:27  3,002 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+14:28  754 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 82 vs baseline 0 (z=82.00) suspicious 3/3
+14:29  1,431 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 91 vs baseline 0 (z=91.00) suspicious 3/3
+       172.16.0.1 z=104.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:30  1,163 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 90 vs baseline 0 (z=90.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/99def79b-6bbb-590e-b97f-7795ac437ca6
+14:31  1,017 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 98 vs baseline 0 (z=98.00) suspicious 3/3
+14:32  1,935 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+14:33  2,295 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 101 vs baseline 0 (z=101.00) suspicious 3/3
+14:34  1,228 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 101 vs baseline 0 (z=101.00) suspicious 3/3
+       172.16.0.1 z=110.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:35  965 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 89 vs baseline 0 (z=89.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/cd703bb2-f320-5f77-978b-8dbcb694ded0
+14:36  384 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 95 vs baseline 0 (z=95.00) suspicious 3/3
+14:37  1,199 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 103 vs baseline 0 (z=103.00) suspicious 3/3
+14:38  634 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 102 vs baseline 0 (z=102.00) suspicious 3/3
+14:39  2,934 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 106 vs baseline 0 (z=106.00) suspicious 3/3
+       52.84.145.117 ALERT pending, checking XGBoost corroboration…
+       172.16.0.1 z=101.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:40  1,517 flows | 8 → AiSOC ✓ | 23.36.34.56 flows 129 vs baseline 1 (z=128.00) suspicious 1/3
+       52.84.145.117 ALERT pending, checking XGBoost corroboration…
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.2s) → http://127.0.0.1:3000/alerts/63093d90-64f9-5931-baf2-f4aaf0d8e1df
+14:41  1,061 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 90 vs baseline 0 (z=90.00) suspicious 3/3
+14:42  699 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 88 vs baseline 0 (z=88.00) suspicious 3/3
+14:43  1,485 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 92 vs baseline 0 (z=92.00) suspicious 3/3
+14:44  1,576 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+       172.16.0.1 z=106.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+       52.84.145.117 z=8.8 ALERT → AiSOC (MEDIUM)
+       HIGH alert (1.1s) → http://127.0.0.1:3000/alerts/db984d5f-05ad-5434-92d0-44c36f72e33a
+       MEDIUM alert (0.3s) → http://127.0.0.1:3000/alerts/e945c9b0-d110-522d-a01e-fa66d4249c54
+14:45  2,261 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 102 vs baseline 0 (z=102.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+14:46  875 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 101 vs baseline 0 (z=101.00) suspicious 3/3
+14:47  589 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 94 vs baseline 0 (z=94.00) suspicious 3/3
+14:48  747 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 92 vs baseline 0 (z=92.00) suspicious 3/3
+14:49  1,855 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 91 vs baseline 0 (z=91.00) suspicious 3/3
+       52.84.145.117 z=8.1 ALERT → AiSOC (MEDIUM)
+       172.16.0.1 z=102.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+       MEDIUM alert (1.1s) → http://127.0.0.1:3000/alerts/9e9377e6-660e-584d-8359-e46caeb3bfd7
+       HIGH alert (0.3s) → http://127.0.0.1:3000/alerts/ceb09f67-f620-562e-841a-ba85471cb90c
+14:50  570 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 103 vs baseline 0 (z=103.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+14:51  1,147 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 106 vs baseline 0 (z=106.00) suspicious 3/3
+14:52  656 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+14:53  1,020 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 101 vs baseline 0 (z=101.00) suspicious 3/3
+14:54  624 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 97 vs baseline 0 (z=97.00) suspicious 3/3
+       172.16.0.1 z=102.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+14:55  338 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 86 vs baseline 0 (z=86.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/ee1b815c-d956-570f-a6da-8ac2eba34ec0
+14:56  281 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 95 vs baseline 0 (z=95.00) suspicious 3/3
+14:57  1,389 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 99 vs baseline 0 (z=99.00) suspicious 3/3
+14:58  1,134 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 99 vs baseline 0 (z=99.00) suspicious 3/3
+14:59  1,432 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 99 vs baseline 0 (z=99.00) suspicious 3/3
+       172.16.0.1 z=106.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+15:00  1,019 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 94 vs baseline 0 (z=94.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.2s) → http://127.0.0.1:3000/alerts/fa43463d-76d7-5378-a5d9-ca74271f05f2
+15:01  920 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 70 vs baseline 0 (z=70.00) suspicious 3/3
+15:02  499 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 95 vs baseline 0 (z=95.00) suspicious 3/3
+15:03  804 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+15:04  646 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 100 vs baseline 0 (z=100.00) suspicious 3/3
+       172.16.0.1 z=99.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+15:05  983 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 96 vs baseline 0 (z=96.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/b72d85b9-8885-5ec8-9f01-c69ffedeec87
+15:06  755 flows | 8 → AiSOC ✓ | 172.16.0.1 auth_port_flows 99 vs baseline 0 (z=99.00) suspicious 3/3
+15:07  386 flows | 8 → AiSOC ✓ | 172.16.0.1 flows 34 vs baseline 1 (z=33.00) suspicious 3/3
+15:08  696 flows | 8 → AiSOC ✓ | 172.16.0.1 flows 89 vs baseline 1 (z=88.00) suspicious 3/3
+15:09  1,790 flows | 8 → AiSOC ✓ | 172.16.0.1 flows 135 vs baseline 1 (z=134.00) suspicious 3/3
+       172.16.0.1 z=100.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+15:10  424 flows | 8 → AiSOC ✓ | 172.16.0.1 flows 109 vs baseline 1 (z=108.00) suspicious 3/3
+       172.16.0.1 ALERT pending, checking XGBoost corroboration…
+       HIGH alert (1.3s) → http://127.0.0.1:3000/alerts/d9eabd03-97dd-552c-b791-52bd97e44a00
+15:11  629 flows | 8 → AiSOC ✓ | 172.16.0.1 flows 50 vs baseline 1 (z=49.00) suspicious 3/3
+15:12  707 flows | 8 → AiSOC ✓ | 172.16.0.1 short_flow_share 1 vs baseline 0 (z=20.00) suspicious 3/3
+       52.84.145.70 ALERT pending, checking XGBoost corroboration…
+15:13  398 flows | 8 → AiSOC ✓ | 52.84.145.70 flows 21 vs baseline 1 (z=20.00) suspicious 3/3
+15:14  1,376 flows | 8 → AiSOC ✓ | 172.16.0.1 short_flow_share 1 vs baseline 0 (z=20.00) suspicious 3/3
+       172.16.0.1 z=134.0 ALERT → AiSOC (XGBoost agrees → HIGH)
+15:15  861 flows | 8 → AiSOC ✓ | 104.27.120.110 flows 66 vs baseline 1 (z=65.00) suspicious 1/3
+       HIGH alert (1.2s) → http://127.0.0.1:3000/alerts/9bb9304e-af89-5788-b9f8-9da1835d8d6c
+15:16  1,288 flows | 8 → AiSOC ✓ | 104.97.74.244 flows 8 vs baseline 1 (z=7.00) suspicious 1/3
+15:17  917 flows | 8 → AiSOC ✓ | 104.27.121.110 flows 21 vs baseline 1 (z=20.00) suspicious 1/3
+15:18  2,258 flows | 8 → AiSOC ✓ | 104.27.121.110 flows 64 vs baseline 1 (z=63.00) suspicious 2/3
+15:19  3,501 flows | 8 → AiSOC ✓ | 52.84.145.224 flows 24 vs baseline 1 (z=23.00) suspicious 2/3
+       patator cap of 15 reached. Skipping remaining summaries in this slice.
+Run f58c4421387c | 113.2s | 100,085 flows processed | 720 pushed | 15 alerts confirmed | 15 summaries (sent, 12 corroborated)
+  http://127.0.0.1:3000/alerts/a4c70ab0-47ba-577c-a495-de780dbf19fa
+  http://127.0.0.1:3000/alerts/5611fb1b-aa56-5e51-ac89-2b9925fd61d0
+  http://127.0.0.1:3000/alerts/311db490-63cf-51ca-a3c8-7934c7eda946
+  http://127.0.0.1:3000/alerts/99def79b-6bbb-590e-b97f-7795ac437ca6
+  http://127.0.0.1:3000/alerts/cd703bb2-f320-5f77-978b-8dbcb694ded0
+  http://127.0.0.1:3000/alerts/63093d90-64f9-5931-baf2-f4aaf0d8e1df
+  http://127.0.0.1:3000/alerts/db984d5f-05ad-5434-92d0-44c36f72e33a
+  http://127.0.0.1:3000/alerts/e945c9b0-d110-522d-a01e-fa66d4249c54
+  http://127.0.0.1:3000/alerts/9e9377e6-660e-584d-8359-e46caeb3bfd7
+  http://127.0.0.1:3000/alerts/ceb09f67-f620-562e-841a-ba85471cb90c
+  http://127.0.0.1:3000/alerts/ee1b815c-d956-570f-a6da-8ac2eba34ec0
+  http://127.0.0.1:3000/alerts/fa43463d-76d7-5378-a5d9-ca74271f05f2
+  http://127.0.0.1:3000/alerts/b72d85b9-8885-5ec8-9f01-c69ffedeec87
+  http://127.0.0.1:3000/alerts/d9eabd03-97dd-552c-b791-52bd97e44a00
+  http://127.0.0.1:3000/alerts/9bb9304e-af89-5788-b9f8-9da1835d8d6c
